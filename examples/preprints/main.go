@@ -24,10 +24,11 @@ func main() {
 			PerPage: 2,
 		},
 	}
-	preprints, err := client.Preprints.ListPreprints(ctx, opts)
+	preprints, res, err := client.Preprints.ListPreprints(ctx, opts)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	spew.Dump(res)
 	spew.Dump(preprints)
 }

@@ -58,23 +58,23 @@ type PreprintsListOptions struct {
 	ListOptions
 }
 
-func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsListOptions) ([]*Preprint, error) {
+func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsListOptions) ([]*Preprint, *Response, error) {
 	u, err := addOptions("preprints", opts)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	var preprints []*Preprint
 
-	_, err = s.client.Do(ctx, req, &preprints)
+	res, err := s.client.Do(ctx, req, &preprints)
 	if err != nil {
-		return nil, err
+		return nil, res, err
 	}
 
-	return preprints, nil
+	return preprints, res, nil
 }

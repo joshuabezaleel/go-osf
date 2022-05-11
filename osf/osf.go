@@ -6,10 +6,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 	"reflect"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -117,22 +119,96 @@ type ListOptions struct {
 	PerPage int `url:"page[size],omitempty"`
 }
 
-type Response struct {
-	*http.Response
+type PaginationMeta struct {
+	Total   int `json:"total"`
+	PerPage int `json:"per_page"`
 }
 
-func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*http.Response, error) {
-	resp, err := c.client.Do(req)
-	if err != nil {
-		return resp, errors.Wrap(err, "http error")
+type PaginationLinks struct {
+	First *string         `json:"first"`
+	Last  *string         `json:"last"`
+	Prev  *string         `json:"prev"`
+	Next  *string         `json:"next"`
+	Meta  *PaginationMeta `json:"meta"`
+}
+
+type ResponsePayload struct {
+	PaginationLinks *PaginationLinks `json:"links"`
+}
+
+type Response struct {
+	// *http.Response
+
+	RawBody []byte
+
+	Page    int
+	PerPage int
+	Total   int
+
+	*PaginationLinks
+
+	// TODO: Relationship.
+}
+
+func newResponse(resp *http.Response) *Response {
+	if resp == nil {
+		return nil
+	}
+
+	r := &Response{
+		// Response: resp,
 	}
 
 	defer resp.Body.Close()
 
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Printf("error reading response: %v", err)
+		return r
+	}
+
+	r.RawBody = body
+
+	var payload ResponsePayload
+	err = json.Unmarshal(body, &payload)
+	if err != nil {
+		log.Printf("error reading response: %v", err)
+		return r
+	}
+
+	if payload.PaginationLinks != nil && payload.PaginationLinks.Meta != nil {
+		r.PaginationLinks = payload.PaginationLinks
+
+		r.Total = r.PaginationLinks.Meta.Total
+		r.PerPage = r.PaginationLinks.Meta.PerPage
+
+		// Try to read page number from url.
+		values := resp.Request.URL.Query()
+		if values.Has("page[number]") {
+			r.Page, _ = strconv.Atoi(values.Get("page[number]"))
+		} else if values.Has("page") {
+			r.Page, _ = strconv.Atoi(values.Get("page"))
+		}
+	}
+
+	// TODO: Relationship.
+
+	return r
+}
+
+func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*Response, error) {
+	httpResp, err := c.client.Do(req)
+	resp := newResponse(httpResp)
+	if err != nil {
+		return resp, errors.Wrap(err, "http error")
+	}
+
+	body := bytes.NewReader(resp.RawBody)
+
 	switch v := v.(type) {
 	case nil:
 	case io.Writer:
-		_, err = io.Copy(v, resp.Body)
+		_, err = io.Copy(v, body)
 	default:
 		t := reflect.TypeOf(v)
 		switch t.Kind() {
@@ -140,7 +216,7 @@ func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*htt
 			s := t.Elem()
 			switch s.Kind() {
 			case reflect.Struct:
-				err := jsonapi.UnmarshalPayload(resp.Body, v)
+				err := jsonapi.UnmarshalPayload(body, v)
 				if err != nil {
 					return resp, errors.Wrap(err, "failed to unmarshal payload")
 				}
@@ -152,7 +228,7 @@ func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*htt
 					return resp, errors.New("v should be a slice of pointers, not a slice of structs")
 				}
 
-				objsIface, err := jsonapi.UnmarshalManyPayload(resp.Body, sliceType)
+				objsIface, err := jsonapi.UnmarshalManyPayload(body, sliceType)
 				if err != nil {
 					return resp, errors.Wrap(err, "failed to unmarshal payload")
 				}
@@ -179,7 +255,7 @@ func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*htt
 			return resp, nil
 		}
 
-		// decErr := json.NewDecoder(resp.Body).Decode(v)
+		// decErr := json.NewDecoder(body).Decode(v)
 		// if decErr == io.EOF {
 		// 	decErr = nil // ignore EOF errors caused by empty response body
 		// }
