@@ -2,6 +2,7 @@ package osf
 
 import (
 	"context"
+	"fmt"
 )
 
 type PreprintsService service
@@ -77,4 +78,21 @@ func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsLis
 	}
 
 	return preprints, res, nil
+}
+
+func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Preprint, error) {
+	u := fmt.Sprintf("preprints/%s", id)
+	
+	req, err := s.client.NewRequest("GET", u, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var preprint Preprint
+	_, err = s.client.Do(ctx, req, &preprint)
+	if err != nil {
+		return nil, err
+	}
+
+	return &preprint, nil
 }

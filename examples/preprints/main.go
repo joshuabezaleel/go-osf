@@ -31,4 +31,11 @@ func main() {
 
 	spew.Dump(res)
 	spew.Dump(preprints)
+
+	preprint, err := client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	spew.Dump(preprint)
 }
