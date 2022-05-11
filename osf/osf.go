@@ -2,14 +2,20 @@ package osf
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
+	"reflect"
 	"strings"
 	"sync"
+
+	"github.com/google/go-querystring/query"
+	"github.com/google/jsonapi"
+	"github.com/pkg/errors"
 )
 
 const (
@@ -32,6 +38,7 @@ type Client struct {
 	common service
 
 	Citations *CitationsService
+	Preprints *PreprintsService
 }
 
 type service struct {
@@ -54,6 +61,7 @@ func NewClient(httpClient *http.Client) *Client {
 	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
 	c.common.client = c
 	c.Citations = (*CitationsService)(&c.common)
+	c.Preprints = (*PreprintsService)(&c.common)
 	return c
 }
 
@@ -104,100 +112,102 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	return req, nil
 }
 
-// func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*Response, error) {
-// 	resp, err := c.client.Do(req)
-// 	if err != nil {
-// 		return resp, err
-// 	}
-// 	defer resp.Body.Close()
+type ListOptions struct {
+	Page    int `url:"page[number],omitempty"`
+	PerPage int `url:"page[size],omitempty"`
+}
 
-// 	switch v := v.(type) {
-// 	case nil:
-// 	case io.Writer:
-// 		_, err = io.Copy(v, resp.Body)
-// 	default:
-// 		decErr := json.NewDecoder(resp.Body).Decode(v)
-// 		if decErr == io.EOF {
-// 			decErr = nil // ignore EOF errors caused by empty response body
-// 		}
-// 		if decErr != nil {
-// 			err = decErr
-// 		}
-// 	}
-// 	return resp, err
-// }
+type Response struct {
+	*http.Response
+}
 
-// type Response struct {
-// }
+func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*http.Response, error) {
+	resp, err := c.client.Do(req)
+	if err != nil {
+		return resp, errors.Wrap(err, "http error")
+	}
 
-// func (c *Client) BareDo(ctx context.Context, req *http.Request) (*Response, error) {
-// 	if ctx == nil {
-// 		return nil, errNonNilContext
-// 	}
+	defer resp.Body.Close()
 
-// 	req = withContext(ctx, req)
+	switch v := v.(type) {
+	case nil:
+	case io.Writer:
+		_, err = io.Copy(v, resp.Body)
+	default:
+		t := reflect.TypeOf(v)
+		switch t.Kind() {
+		case reflect.Ptr:
+			s := t.Elem()
+			switch s.Kind() {
+			case reflect.Struct:
+				err := jsonapi.UnmarshalPayload(resp.Body, v)
+				if err != nil {
+					return resp, errors.Wrap(err, "failed to unmarshal payload")
+				}
+				return resp, nil
 
-// 	rateLimitCategory := category(req.URL.Path)
+			case reflect.Slice:
+				sliceType := s.Elem()
+				if sliceType.Kind() != reflect.Ptr {
+					return resp, errors.New("v should be a slice of pointers, not a slice of structs")
+				}
 
-// 	if bypass := ctx.Value(bypassRateLimitCheck); bypass == nil {
-// 		// If we've hit rate limit, don't make further requests before Reset time.
-// 		if err := c.checkRateLimitBeforeDo(req, rateLimitCategory); err != nil {
-// 			return &Response{
-// 				Response: err.Response,
-// 				Rate:     err.Rate,
-// 			}, err
-// 		}
-// 	}
+				objsIface, err := jsonapi.UnmarshalManyPayload(resp.Body, sliceType)
+				if err != nil {
+					return resp, errors.Wrap(err, "failed to unmarshal payload")
+				}
 
-// 	resp, err := c.client.Do(req)
-// 	if err != nil {
-// 		// If we got an error, and the context has been canceled,
-// 		// the context's error is probably more useful.
-// 		select {
-// 		case <-ctx.Done():
-// 			return nil, ctx.Err()
-// 		default:
-// 		}
+				results := reflect.MakeSlice(reflect.SliceOf(sliceType), 0, len(objsIface))
+				for _, obj := range objsIface {
+					v := reflect.ValueOf(obj)
+					if v.Type() != sliceType {
+						return resp, errors.New("failed to unmarshal payload")
+					}
+					results = reflect.Append(results, reflect.ValueOf(obj))
+				}
 
-// 		// If the error type is *url.Error, sanitize its URL before returning.
-// 		if e, ok := err.(*url.Error); ok {
-// 			if url, err := url.Parse(e.URL); err == nil {
-// 				e.URL = sanitizeURL(url).String()
-// 				return nil, e
-// 			}
-// 		}
+				reflect.ValueOf(v).Elem().Set(results)
+				return resp, nil
 
-// 		return nil, err
-// 	}
+			default:
+				// Do nothing.
+				return resp, nil
+			}
 
-// 	response := newResponse(resp)
+		default:
+			// Do nothing.
+			return resp, nil
+		}
 
-// 	// Don't update the rate limits if this was a cached response.
-// 	// X-From-Cache is set by https://github.com/gregjones/httpcache
-// 	if response.Header.Get("X-From-Cache") == "" {
-// 		c.rateMu.Lock()
-// 		c.rateLimits[rateLimitCategory] = response.Rate
-// 		c.rateMu.Unlock()
-// 	}
+		// decErr := json.NewDecoder(resp.Body).Decode(v)
+		// if decErr == io.EOF {
+		// 	decErr = nil // ignore EOF errors caused by empty response body
+		// }
+		// if decErr != nil {
+		// 	err = decErr
+		// }
+	}
+	return resp, nil
+}
 
-// 	err = CheckResponse(resp)
-// 	if err != nil {
-// 		defer resp.Body.Close()
-// 		// Special case for AcceptedErrors. If an AcceptedError
-// 		// has been encountered, the response's payload will be
-// 		// added to the AcceptedError and returned.
-// 		//
-// 		// Issue #1022
-// 		aerr, ok := err.(*AcceptedError)
-// 		if ok {
-// 			b, readErr := ioutil.ReadAll(resp.Body)
-// 			if readErr != nil {
-// 				return response, readErr
-// 			}
+// addOptions adds the parameters in opts as URL query parameters to s. opts
+// must be a struct whose fields may contain "url" tags.
+func addOptions(s string, opts interface{}) (string, error) {
+	v := reflect.ValueOf(opts)
+	if v.Kind() == reflect.Ptr && v.IsNil() {
+		return s, nil
+	}
 
-// 			aerr.Raw = b
-// 			err = aerr
-// 		}
-// 	}
-// 	return response, err
-// }
+	u, err := url.Parse(s)
+	if err != nil {
+		return s, err
+	}
+
+	qs, err := query.Values(opts)
+	if err != nil {
+		return s, err
+	}
+
+	u.RawQuery = qs.Encode()
+	return u.String(), nil
+}

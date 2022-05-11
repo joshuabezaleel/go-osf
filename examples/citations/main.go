@@ -1,11 +1,11 @@
-package examples
+package main
 
 import (
 	"context"
 	"log"
 	"os"
 
-	goosf "github.com/joshuabezaleel/gohack-osfapi-wrapper/osf"
+	"github.com/joshuabezaleel/go-osf/osf"
 	"golang.org/x/oauth2"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	)
 	tc := oauth2.NewClient(ctx, ts)
 
-	client := goosf.NewClient(tc)
+	client := osf.NewClient(tc)
 	err := client.Citations.ListCitationsStyles(ctx)
 	if err != nil {
 		log.Fatal(err)
