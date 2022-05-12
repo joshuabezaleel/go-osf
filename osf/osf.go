@@ -107,6 +107,9 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	return req, nil
 }
 
+// TODO: Fix this.
+type Timestamp string
+
 type ListOptions struct {
 	Page    int `url:"page[number],omitempty"`
 	PerPage int `url:"page[size],omitempty"`

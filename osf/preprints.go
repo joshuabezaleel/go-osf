@@ -7,9 +7,6 @@ import (
 
 type PreprintsService service
 
-// TODO: Fix this.
-type Timestamp string
-
 type PreprintLicenseRecord struct {
 	CopyrightHolders []string `json:"copyright_holders"`
 	Year             string   `json:"year"`
