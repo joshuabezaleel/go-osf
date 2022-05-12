@@ -20,7 +20,7 @@ func main() {
 	client := osf.NewClient(tc)
 	opts := &osf.PreprintsListOptions{
 		ListOptions: osf.ListOptions{
-			Page: 1000,
+			Page:    1000,
 			PerPage: 2,
 		},
 	}
@@ -30,12 +30,12 @@ func main() {
 	}
 
 	spew.Dump(res)
-	spew.Dump(preprints)
+	// spew.Dump(preprints)
 
-	preprint, err := client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
+	_, err = client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	spew.Dump(preprint)
+	// spew.Dump(preprint)
 }
