@@ -8,7 +8,7 @@ import (
 type FilesService service
 
 type File struct {
-	ID string `jsonapi:"primary,preprints"`
+	ID string `jsonapi:"primary,files"`
 
 	Kind                  string    `jsonapi:"attr,kind"`
 	Name                  string    `jsonapi:"attr,name"`
