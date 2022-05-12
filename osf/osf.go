@@ -41,6 +41,7 @@ type Client struct {
 
 	Citations *CitationsService
 	Preprints *PreprintsService
+	Files     *FilesService
 }
 
 type service struct {
@@ -64,6 +65,7 @@ func NewClient(httpClient *http.Client) *Client {
 	c.common.client = c
 	c.Citations = (*CitationsService)(&c.common)
 	c.Preprints = (*PreprintsService)(&c.common)
+	c.Files = (*FilesService)(&c.common)
 	return c
 }
 
@@ -123,8 +125,18 @@ type PaginationLinks struct {
 	Meta  *PaginationMeta `json:"meta"`
 }
 
+// FileLinks contains properties inside the link struct that is related to file endpoints according to the Waterbutler API convention.
+type FileLinks struct {
+	NewFolder *string `json:"new_folder"`
+	Move      *string `json:"move"`
+	Upload    *string `json:"upload"`
+	Download  *string `json:"download"`
+	Delete    *string `json:"delete"`
+}
+
 type ResponsePayload struct {
 	PaginationLinks *PaginationLinks `json:"links"`
+	// FileLinks       *FileLinks       `json:"links"`
 }
 
 type Response struct {
@@ -137,6 +149,7 @@ type Response struct {
 	Total   int
 
 	*PaginationLinks
+	*FileLinks
 
 	// TODO: Relationship.
 }

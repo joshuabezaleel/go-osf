@@ -21,7 +21,8 @@ type Subject struct {
 }
 
 type Preprint struct {
-	ID                      string                `jsonapi:"primary,preprints"`
+	ID string `jsonapi:"primary,preprints"`
+
 	DateCreated             Timestamp             `jsonapi:"attr,date_created"`
 	DateModified            Timestamp             `jsonapi:"attr,date_modified"`
 	DatePublished           Timestamp             `jsonapi:"attr,date_published"`
@@ -82,7 +83,7 @@ func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsLis
 
 func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Preprint, error) {
 	u := fmt.Sprintf("preprints/%s", id)
-	
+
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
 		return nil, err
