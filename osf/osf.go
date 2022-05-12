@@ -78,10 +78,6 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	// }
 	u := c.BaseURL.String() + urlStr
 
-	log.Println(c.BaseURL.String())
-	log.Println(urlStr)
-	log.Println(u)
-
 	var buf io.ReadWriter
 	if body != nil {
 		buf = &bytes.Buffer{}
@@ -93,16 +89,11 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 		}
 	}
 
-	// log.Println(u.String())
-	log.Println("JOBEL")
-
 	// TODO: why the /v2 gone
 	req, err := http.NewRequest(method, u, buf)
 	if err != nil {
 		return nil, err
 	}
-
-	log.Println(req.URL)
 
 	if body != nil {
 		req.Header.Set("Content-Type", "application/json")

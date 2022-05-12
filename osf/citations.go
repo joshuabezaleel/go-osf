@@ -20,8 +20,6 @@ func (s *CitationsService) ListCitationsStyles(ctx context.Context) error {
 		return err
 	}
 
-	log.Println(fmt.Sprintf("%+v\n", req))
-
 	resp, err := s.client.client.Do(req)
 	if err != nil {
 		return err
