@@ -3,6 +3,8 @@ package osf
 import (
 	"context"
 	"fmt"
+
+	"github.com/mitchellh/mapstructure"
 )
 
 type FilesService service
@@ -53,35 +55,12 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 
 	file := res.GetData()
 
-	// TODO: Do this automatically using reflection.
 	if res.Data.Links != nil {
 		links := new(FileLinks)
-		if i, ok := res.Data.Links["new_folder"]; ok {
-			if s, ok := i.(string); ok {
-				links.NewFolder = &s
-			}
+		err := mapstructure.Decode(res.Data.Links, links)
+		if err != nil {
+			return nil, nil, err
 		}
-		if i, ok := res.Data.Links["move"]; ok {
-			if s, ok := i.(string); ok {
-				links.Move = &s
-			}
-		}
-		if i, ok := res.Data.Links["upload"]; ok {
-			if s, ok := i.(string); ok {
-				links.Upload = &s
-			}
-		}
-		if i, ok := res.Data.Links["download"]; ok {
-			if s, ok := i.(string); ok {
-				links.Download = &s
-			}
-		}
-		if i, ok := res.Data.Links["delete"]; ok {
-			if s, ok := i.(string); ok {
-				links.Delete = &s
-			}
-		}
-
 		file.FileLinks = links
 	}
 
