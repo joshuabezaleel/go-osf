@@ -3,7 +3,9 @@ package osf
 import (
 	"context"
 	"fmt"
-	"log"
+	"io"
+	"net/http"
+	"os"
 )
 
 type FilesService service
@@ -62,7 +64,40 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 }
 
 func (s *FilesService) DownloadFile(ctx context.Context, dir string, filename string, file *File) error {
-	log.Println(*file.FileLinks.Download)
+	if dir == "" {
+		wd, err := os.Getwd()
+		if err != nil {
+			return err
+		}
+		dir = wd
+	}
+
+	if filename == "" {
+		filename = file.Name
+	}
+	filepath := dir + "/" + filename
+
+	out, err := os.Create(filepath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	req, err := http.NewRequest("GET", *file.FileLinks.Download, nil)
+	if err != nil {
+		return err
+	}
+
+	res, err := s.client.client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	_, err = io.Copy(out, res.Body)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
