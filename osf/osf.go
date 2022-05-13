@@ -103,9 +103,41 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	return req, nil
 }
 
-type ListOptions struct {
-	Page    int `url:"page[number],omitempty"`
-	PerPage int `url:"page[size],omitempty"`
+type Meta map[string]interface{}
+
+// https://jsonapi.org/format/#document-links
+type Link struct {
+	Href string `json:"href"`
+	Meta Meta   `json:"meta,omitempty"`
+}
+
+type Links struct {
+	Self    *Link `json:"self,omitempty"`
+	Related *Link `json:"related,omitempty"`
+}
+
+// https://jsonapi.org/format/#document-resource-object-relationships
+type Relationship struct {
+	Links *Links                          `json:"links"`
+	Data  *Data[interface{}, interface{}] `json:"data,omitempty"`
+	Meta  Meta                            `json:"meta,omitempty"`
+}
+
+type Relationships map[string]Relationship
+
+type Data[T any, U any] struct {
+	ID   string `json:"id"`
+	Type string `json:"type"`
+
+	Attributes    T             `json:"attributes"`
+	Links         U             `json:"links"`
+	Relationships Relationships `json:"relationships"`
+}
+
+type SingleResponse[T any, U any] struct {
+	RawData *Data[T, U] `json:"data"`
+
+	Data T `json:"-"`
 }
 
 type PaginationMeta struct {
@@ -121,36 +153,12 @@ type PaginationLinks struct {
 	Meta  *PaginationMeta `json:"meta"`
 }
 
-type Data[T any] struct {
-	ID   string `json:"id"`
-	Type string `json:"type"`
-
-	Attributes    T                      `json:"attributes"`
-	Links         map[string]interface{} `json:"links"`
-	Relationships map[string]interface{} `json:"relationships"`
-}
-
-type SingleResponse[T any] struct {
-	Data Data[T] `json:"data"`
-}
-
-func (r *SingleResponse[T]) GetData() T {
-	return r.Data.Attributes
-}
-
-type ManyResponse[T any] struct {
-	Data            []Data[T]        `json:"data"`
+type ManyResponse[T any, U any] struct {
+	RawData         []*Data[T, U]    `json:"data"`
 	PaginationLinks *PaginationLinks `json:"links"`
 
+	Data []T `json:"-"`
 	// TODO: Include more user-friendly attributes regarding paginations.
-}
-
-func (r *ManyResponse[T]) GetData() []T {
-	res := make([]T, 0, len(r.Data))
-	for _, obj := range r.Data {
-		res = append(res, obj.Attributes)
-	}
-	return res
 }
 
 // do performs logic for doSingle and doMany via generic a generic method.
@@ -191,18 +199,29 @@ func getIDFieldIndex(obj interface{}) int {
 	return -1
 }
 
+type BuildDataFn[T any, U any] func(obj *Data[T, U]) (T, error)
+
 // doSingle performs a request for a single payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doSingle[T any](c *Client, ctx context.Context, req *http.Request) (*SingleResponse[T], error) {
-	res, err := do[SingleResponse[T]](c, ctx, req)
+func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*SingleResponse[T, U], error) {
+	res, err := do[SingleResponse[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
 	}
 
-	// Inject ID into T, if it exists.
-	idFieldIndex := getIDFieldIndex(res.Data.Attributes)
+	// Inject ID into Attributes, if it exists.
+	idFieldIndex := getIDFieldIndex(res.RawData.Attributes)
 	if idFieldIndex != -1 {
-		reflect.ValueOf(res.Data.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.Data.ID))
+		reflect.ValueOf(res.RawData.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.RawData.ID))
+	}
+
+	if len(build) > 0 {
+		res.Data, err = build[0](res.RawData)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		res.Data = res.RawData.Attributes
 	}
 
 	return res, err
@@ -210,24 +229,44 @@ func doSingle[T any](c *Client, ctx context.Context, req *http.Request) (*Single
 
 // doMany performs a request for a paginated payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doMany[T any](c *Client, ctx context.Context, req *http.Request) (*ManyResponse[T], error) {
-	res, err := do[ManyResponse[T]](c, ctx, req)
+func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*ManyResponse[T, U], error) {
+	res, err := do[ManyResponse[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
 	}
 
 	// Inject ID into T, if it exists.
 	if len(res.Data) > 0 {
-		idFieldIndex := getIDFieldIndex(res.Data[0].Attributes)
+		idFieldIndex := getIDFieldIndex(res.RawData[0].Attributes)
 
 		if idFieldIndex != -1 {
-			for _, obj := range res.Data {
+			for _, obj := range res.RawData {
 				reflect.ValueOf(obj.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(obj.ID))
 			}
 		}
 	}
 
+	res.Data = make([]T, 0, len(res.RawData))
+	if len(build) > 0 {
+		for _, raw := range res.RawData {
+			obj, err := build[0](raw)
+			if err != nil {
+				return nil, err
+			}
+			res.Data = append(res.Data, obj)
+		}
+	} else {
+		for _, raw := range res.RawData {
+			res.Data = append(res.Data, raw.Attributes)
+		}
+	}
+
 	return res, err
+}
+
+type ListOptions struct {
+	Page    int `url:"page[number],omitempty"`
+	PerPage int `url:"page[size],omitempty"`
 }
 
 // addOptions adds the parameters in opts as URL query parameters to s. opts

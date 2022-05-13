@@ -4,8 +4,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-
-	"github.com/mitchellh/mapstructure"
 )
 
 type FilesService service
@@ -41,7 +39,13 @@ type FileLinks struct {
 	Delete    *string `json:"delete"`
 }
 
-func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *SingleResponse[*File], error) {
+func buildFile(raw *Data[*File, *FileLinks]) (*File, error) {
+	obj := raw.Attributes
+	obj.FileLinks = raw.Links
+	return obj, nil
+}
+
+func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *SingleResponse[*File, *FileLinks], error) {
 	u := fmt.Sprintf("files/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
@@ -49,23 +53,12 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 		return nil, nil, err
 	}
 
-	res, err := doSingle[*File](s.client, ctx, req)
+	res, err := doSingle(s.client, ctx, req, buildFile)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	file := res.GetData()
-
-	if res.Data.Links != nil {
-		links := new(FileLinks)
-		err := mapstructure.Decode(res.Data.Links, links)
-		if err != nil {
-			return nil, nil, err
-		}
-		file.FileLinks = links
-	}
-
-	return file, res, nil
+	return res.Data, res, nil
 }
 
 func (s *FilesService) DownloadFile(ctx context.Context, dir string, filename string, file *File) error {

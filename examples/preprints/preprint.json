@@ -1,0 +1,181 @@
+{
+    "data": {
+        "id": "4rwj5",
+        "type": "preprints",
+        "attributes": {
+            "date_created": "2022-05-13T07:18:45.188240",
+            "date_modified": "2022-05-13T07:26:31.891907",
+            "date_published": "2022-05-13T07:25:36.626406",
+            "original_publication_date": null,
+            "doi": null,
+            "title": "Full-Text Search on Data with Access Control",
+            "description": "Full-Text Search combined with access control has a wide range of applications. Unfortunately, there are only few (if not zero) researches that combine the two. While inverted index is already used widely for full-text searching, we try to use generalized suffix tree for its ability to search for any substring within a document, not only exact word occurrence. Theoretically, the time and memory needed to index a collection of documents is linear in the total size of the documents. However, our implementation requires memory more than 1200 times of the size of documents. A further analysis shows that at least 32 times is needed, but will require longer indexing time. In conclusion, generalized suffix tree may not suitable for large amount of data. In the other hand, the search using generalized suffix tree is 3 times faster than inverted index. Suffix tree can be used only if substring search is required (e.g. DNA processing), or where time is significantly more important than memory (e.g. search autocomplete system). The access control itself acts as filter after the documents yielded from searching through the index.",
+            "is_published": true,
+            "is_preprint_orphan": false,
+            "license_record": {
+                "copyright_holders": [
+                    ""
+                ],
+                "year": "2022"
+            },
+            "tags": [],
+            "preprint_doi_created": "2022-05-13T07:26:09.407990",
+            "date_withdrawn": null,
+            "current_user_permissions": [
+                "admin",
+                "write",
+                "read"
+            ],
+            "public": true,
+            "reviews_state": "accepted",
+            "date_last_transitioned": "2022-05-13T07:25:36.626406",
+            "has_coi": false,
+            "conflict_of_interest_statement": null,
+            "has_data_links": "available",
+            "why_no_data": "",
+            "data_links": [
+                "http://disi.unitn.it/moschitti/corpora.htm"
+            ],
+            "has_prereg_links": "not_applicable",
+            "why_no_prereg": null,
+            "prereg_links": [],
+            "prereg_link_info": "",
+            "subjects": [
+                [
+                    {
+                        "id": "584240da54be81056cecaca9",
+                        "text": "Engineering"
+                    }
+                ],
+                [
+                    {
+                        "id": "584240d954be81056ceca9a1",
+                        "text": "Physical Sciences and Mathematics"
+                    },
+                    {
+                        "id": "584240da54be81056cecabbb",
+                        "text": "Computer Sciences"
+                    },
+                    {
+                        "id": "584240db54be81056cecacd4",
+                        "text": "Databases and Information Systems"
+                    }
+                ]
+            ]
+        },
+        "relationships": {
+            "contributors": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/contributors/",
+                        "meta": {}
+                    }
+                }
+            },
+            "bibliographic_contributors": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/bibliographic_contributors/",
+                        "meta": {}
+                    }
+                }
+            },
+            "citation": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/citation/",
+                        "meta": {}
+                    }
+                },
+                "data": {
+                    "id": "4rwj5",
+                    "type": "preprints"
+                }
+            },
+            "identifiers": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/identifiers/",
+                        "meta": {}
+                    }
+                }
+            },
+            "node": {
+                "links": {
+                    "self": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/relationships/node/",
+                        "meta": {}
+                    }
+                }
+            },
+            "license": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+                        "meta": {}
+                    }
+                },
+                "data": {
+                    "id": "563c1cf88c5e4a3877f9e96a",
+                    "type": "licenses"
+                }
+            },
+            "provider": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/providers/preprints/osf/",
+                        "meta": {}
+                    }
+                },
+                "data": {
+                    "id": "osf",
+                    "type": "preprint-providers"
+                }
+            },
+            "files": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/files/",
+                        "meta": {}
+                    }
+                }
+            },
+            "primary_file": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/files/627e065928177418cff7dc94/",
+                        "meta": {}
+                    }
+                },
+                "data": {
+                    "id": "627e065928177418cff7dc94",
+                    "type": "files"
+                }
+            },
+            "review_actions": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/review_actions/",
+                        "meta": {}
+                    }
+                }
+            },
+            "requests": {
+                "links": {
+                    "related": {
+                        "href": "https://api.osf.io/v2/preprints/4rwj5/requests/",
+                        "meta": {}
+                    }
+                }
+            }
+        },
+        "links": {
+            "self": "https://api.osf.io/v2/preprints/4rwj5/",
+            "html": "https://osf.io/4rwj5/",
+            "preprint_doi": "https://doi.org/10.31219/osf.io/4rwj5"
+        }
+    },
+    "meta": {
+        "version": "2.0"
+    }
+}
