@@ -30,12 +30,12 @@ func main() {
 	}
 
 	spew.Dump(res)
-	// spew.Dump(preprints)
+	spew.Dump(preprints)
 
-	_, err = client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
+	preprint, _, err := client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// spew.Dump(preprint)
+	spew.Dump(preprint)
 }

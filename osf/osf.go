@@ -6,17 +6,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"reflect"
-	"strconv"
 	"strings"
 	"sync"
 
 	"github.com/google/go-querystring/query"
-	"github.com/google/jsonapi"
 	"github.com/pkg/errors"
 )
 
@@ -107,9 +103,6 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 	return req, nil
 }
 
-// TODO: Fix this.
-type Timestamp string
-
 type ListOptions struct {
 	Page    int `url:"page[number],omitempty"`
 	PerPage int `url:"page[size],omitempty"`
@@ -128,149 +121,113 @@ type PaginationLinks struct {
 	Meta  *PaginationMeta `json:"meta"`
 }
 
-// FileLinks contains properties inside the link struct that is related to file endpoints according to the Waterbutler API convention.
-type FileLinks struct {
-	NewFolder *string `json:"new_folder"`
-	Move      *string `json:"move"`
-	Upload    *string `json:"upload"`
-	Download  *string `json:"download"`
-	Delete    *string `json:"delete"`
+type Data[T any] struct {
+	ID   string `json:"id"`
+	Type string `json:"type"`
+
+	Attributes    T                      `json:"attributes"`
+	Links         map[string]interface{} `json:"links"`
+	Relationships map[string]interface{} `json:"relationships"`
 }
 
-type ResponsePayload struct {
+type SingleResponse[T any] struct {
+	Data Data[T] `json:"data"`
+}
+
+func (r *SingleResponse[T]) GetData() T {
+	return r.Data.Attributes
+}
+
+type ManyResponse[T any] struct {
+	Data            []Data[T]        `json:"data"`
 	PaginationLinks *PaginationLinks `json:"links"`
-	// FileLinks       *FileLinks       `json:"links"`
+
+	// TODO: Include more user-friendly attributes regarding paginations.
 }
 
-type Response struct {
-	// *http.Response
-
-	RawBody []byte
-
-	Page    int
-	PerPage int
-	Total   int
-
-	*PaginationLinks
-	*FileLinks
-
-	// TODO: Relationship.
-}
-
-func newResponse(resp *http.Response) *Response {
-	if resp == nil {
-		return nil
+func (r *ManyResponse[T]) GetData() []T {
+	res := make([]T, 0, len(r.Data))
+	for _, obj := range r.Data {
+		res = append(res, obj.Attributes)
 	}
+	return res
+}
 
-	r := &Response{
-		// Response: resp,
+// do performs logic for doSingle and doMany via generic a generic method.
+// HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
+func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
+	resp, err := c.client.Do(req)
+	if err != nil {
+		return nil, errors.Wrap(err, "http error")
 	}
 
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Printf("error reading response: %v", err)
-		return r
+	data := new(T)
+	if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+		return nil, errors.Wrap(err, "error unmarshaling payload")
 	}
 
-	r.RawBody = body
-
-	var payload ResponsePayload
-	err = json.Unmarshal(body, &payload)
-	if err != nil {
-		log.Printf("error reading response: %v", err)
-		return r
-	}
-
-	if payload.PaginationLinks != nil && payload.PaginationLinks.Meta != nil {
-		r.PaginationLinks = payload.PaginationLinks
-
-		r.Total = r.PaginationLinks.Meta.Total
-		r.PerPage = r.PaginationLinks.Meta.PerPage
-
-		// Try to read page number from url.
-		values := resp.Request.URL.Query()
-		if values.Has("page[number]") {
-			r.Page, _ = strconv.Atoi(values.Get("page[number]"))
-		} else if values.Has("page") {
-			r.Page, _ = strconv.Atoi(values.Get("page"))
-		}
-	}
-
-	// TODO: Relationship.
-
-	return r
+	return data, nil
 }
 
-func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*Response, error) {
-	httpResp, err := c.client.Do(req)
-	resp := newResponse(httpResp)
-	if err != nil {
-		return resp, errors.Wrap(err, "http error")
+func getIDFieldIndex(obj interface{}) int {
+	v := reflect.ValueOf(obj)
+
+	// For this to work, T needs to be a pointer.
+	if v.Type().Kind() != reflect.Pointer {
+		return -1
 	}
 
-	body := bytes.NewReader(resp.RawBody)
-
-	switch v := v.(type) {
-	case nil:
-	case io.Writer:
-		_, err = io.Copy(v, body)
-	default:
-		t := reflect.TypeOf(v)
-		switch t.Kind() {
-		case reflect.Ptr:
-			s := t.Elem()
-			switch s.Kind() {
-			case reflect.Struct:
-				err := jsonapi.UnmarshalPayload(body, v)
-				if err != nil {
-					return resp, errors.Wrap(err, "failed to unmarshal payload")
-				}
-				return resp, nil
-
-			case reflect.Slice:
-				sliceType := s.Elem()
-				if sliceType.Kind() != reflect.Ptr {
-					return resp, errors.New("v should be a slice of pointers, not a slice of structs")
-				}
-
-				objsIface, err := jsonapi.UnmarshalManyPayload(body, sliceType)
-				if err != nil {
-					return resp, errors.Wrap(err, "failed to unmarshal payload")
-				}
-
-				results := reflect.MakeSlice(reflect.SliceOf(sliceType), 0, len(objsIface))
-				for _, obj := range objsIface {
-					v := reflect.ValueOf(obj)
-					if v.Type() != sliceType {
-						return resp, errors.New("failed to unmarshal payload")
-					}
-					results = reflect.Append(results, reflect.ValueOf(obj))
-				}
-
-				reflect.ValueOf(v).Elem().Set(results)
-				return resp, nil
-
-			default:
-				// Do nothing.
-				return resp, nil
-			}
-
-		default:
-			// Do nothing.
-			return resp, nil
+	v = v.Elem()
+	t := v.Type()
+	for i := 0; i < v.NumField(); i++ {
+		tags := strings.Split(t.Field(i).Tag.Get("json"), ",")
+		if len(tags) > 0 && tags[0] == "id" {
+			return i
 		}
-
-		// decErr := json.NewDecoder(body).Decode(v)
-		// if decErr == io.EOF {
-		// 	decErr = nil // ignore EOF errors caused by empty response body
-		// }
-		// if decErr != nil {
-		// 	err = decErr
-		// }
 	}
-	return resp, nil
+
+	return -1
+}
+
+// doSingle performs a request for a single payload.
+// HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
+func doSingle[T any](c *Client, ctx context.Context, req *http.Request) (*SingleResponse[T], error) {
+	res, err := do[SingleResponse[T]](c, ctx, req)
+	if err != nil {
+		return nil, err
+	}
+
+	// Inject ID into T, if it exists.
+	idFieldIndex := getIDFieldIndex(res.Data.Attributes)
+	if idFieldIndex != -1 {
+		reflect.ValueOf(res.Data.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.Data.ID))
+	}
+
+	return res, err
+}
+
+// doMany performs a request for a paginated payload.
+// HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
+func doMany[T any](c *Client, ctx context.Context, req *http.Request) (*ManyResponse[T], error) {
+	res, err := do[ManyResponse[T]](c, ctx, req)
+	if err != nil {
+		return nil, err
+	}
+
+	// Inject ID into T, if it exists.
+	if len(res.Data) > 0 {
+		idFieldIndex := getIDFieldIndex(res.Data[0].Attributes)
+
+		if idFieldIndex != -1 {
+			for _, obj := range res.Data {
+				reflect.ValueOf(obj.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(obj.ID))
+			}
+		}
+	}
+
+	return res, err
 }
 
 // addOptions adds the parameters in opts as URL query parameters to s. opts

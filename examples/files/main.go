@@ -20,10 +20,11 @@ func main() {
 	client := osf.NewClient(tc)
 	fileID := "553e69248c5e4a219919ea54"
 
-	file, err := client.Files.GetFileByID(ctx, fileID)
+	file, _, err := client.Files.GetFileByID(ctx, fileID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	spew.Dump(file)
+	// spew.Dump(res)
 }

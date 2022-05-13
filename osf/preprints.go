@@ -18,26 +18,26 @@ type Subject struct {
 }
 
 type Preprint struct {
-	ID string `jsonapi:"primary,preprints"`
+	ID string `json:"id"`
 
-	DateCreated             Timestamp             `jsonapi:"attr,date_created"`
-	DateModified            Timestamp             `jsonapi:"attr,date_modified"`
-	DatePublished           Timestamp             `jsonapi:"attr,date_published"`
-	OriginalPublicationDate Timestamp             `jsonapi:"attr,original_publication_date"`
-	DOI                     *string               `jsonapi:"attr,doi"`
-	Title                   string                `jsonapi:"attr,title"`
-	Description             string                `jsonapi:"attr,description"`
-	IsPublished             bool                  `jsonapi:"attr,is_published"`
-	IsPreprintOrphan        bool                  `jsonapi:"attr,is_preprint_orphan"`
-	LicenseRecord           PreprintLicenseRecord `jsonapi:"attr,license_record"`
-	Tags                    []string              `jsonapi:"attr,tags"`
-	PreprintDOICreated      Timestamp             `jsonapi:"attr,preprint_doi_created"`
-	DateWithdrawn           Timestamp             `jsonapi:"attr,date_withdrawn"`
-	Public                  bool                  `jsonapi:"attr,public"`
-	ReviewsState            string                `jsonapi:"attr,reviews_state"`
-	DateLastTransitioned    Timestamp             `jsonapi:"attr,date_last_transitioned"`
-	HasCOI                  bool                  `jsonapi:"attr,has_coi"`
-	// Subjects                [][]Subject           `jsonapi:"attr,subjects"`
+	DateCreated             *Time                 `json:"date_created"`
+	DateModified            *Time                 `json:"date_modified"`
+	DatePublished           *Time                 `json:"date_published"`
+	OriginalPublicationDate *Time                 `json:"original_publication_date"`
+	DOI                     *string               `json:"doi"`
+	Title                   string                `json:"title"`
+	Description             string                `json:"description"`
+	IsPublished             bool                  `json:"is_published"`
+	IsPreprintOrphan        bool                  `json:"is_preprint_orphan"`
+	LicenseRecord           PreprintLicenseRecord `json:"license_record"`
+	Tags                    []string              `json:"tags"`
+	PreprintDOICreated      *Time                 `json:"preprint_doi_created"`
+	DateWithdrawn           *Time                 `json:"date_withdrawn"`
+	Public                  bool                  `json:"public"`
+	ReviewsState            string                `json:"reviews_state"`
+	DateLastTransitioned    *Time                 `json:"date_last_transitioned"`
+	HasCOI                  bool                  `json:"has_coi"`
+	Subjects                [][]Subject           `json:"subjects"`
 }
 
 /*
@@ -57,7 +57,7 @@ type PreprintsListOptions struct {
 	ListOptions
 }
 
-func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsListOptions) ([]*Preprint, *Response, error) {
+func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsListOptions) ([]*Preprint, *ManyResponse[*Preprint], error) {
 	u, err := addOptions("preprints", opts)
 	if err != nil {
 		return nil, nil, err
@@ -68,29 +68,26 @@ func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsLis
 		return nil, nil, err
 	}
 
-	var preprints []*Preprint
-
-	res, err := s.client.Do(ctx, req, &preprints)
+	res, err := doMany[*Preprint](s.client, ctx, req)
 	if err != nil {
-		return nil, res, err
+		return nil, nil, err
 	}
 
-	return preprints, res, nil
+	return res.GetData(), res, nil
 }
 
-func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Preprint, error) {
+func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Preprint, *SingleResponse[*Preprint], error) {
 	u := fmt.Sprintf("preprints/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
-	var preprint Preprint
-	_, err = s.client.Do(ctx, req, &preprint)
+	res, err := doSingle[*Preprint](s.client, ctx, req)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
-	return &preprint, nil
+	return res.GetData(), res, nil
 }
