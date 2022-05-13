@@ -3,6 +3,7 @@ package osf
 import (
 	"context"
 	"fmt"
+	"log"
 
 	"github.com/mitchellh/mapstructure"
 )
@@ -65,4 +66,10 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 	}
 
 	return file, res, nil
+}
+
+func (s *FilesService) DownloadFile(ctx context.Context, dir string, filename string, file *File) error {
+	log.Println(*file.FileLinks.Download)
+
+	return nil
 }
