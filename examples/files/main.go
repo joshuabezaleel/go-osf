@@ -26,5 +26,10 @@ func main() {
 	}
 
 	spew.Dump(file)
+
+	err = client.Files.DownloadFile(ctx, "", "", file)
+	if err != nil {
+		log.Fatal(err)
+	}
 	// spew.Dump(res)
 }
