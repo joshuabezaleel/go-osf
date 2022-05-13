@@ -52,7 +52,7 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 		return nil, nil, err
 	}
 
-	res, err := doSingle[*File, *FileLinks](s.client, ctx, req)
+	res, err := doSingle(s.client, ctx, req, buildFile)
 	if err != nil {
 		return nil, nil, err
 	}
