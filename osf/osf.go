@@ -35,7 +35,6 @@ type Client struct {
 
 	common service
 
-	Citations         *CitationsService
 	Preprints         *PreprintsService
 	PreprintProviders *PreprintProvidersService
 	Files             *FilesService
@@ -60,7 +59,6 @@ func NewClient(httpClient *http.Client) *Client {
 
 	c := &Client{client: httpClient, BaseURL: baseURL, UserAgent: userAgent}
 	c.common.client = c
-	c.Citations = (*CitationsService)(&c.common)
 	c.Preprints = (*PreprintsService)(&c.common)
 	c.PreprintProviders = (*PreprintProvidersService)(&c.common)
 	c.Files = (*FilesService)(&c.common)
