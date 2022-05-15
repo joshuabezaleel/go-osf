@@ -31,3 +31,19 @@ func (t *Time) UnmarshalJSON(b []byte) error {
 
 	return nil
 }
+
+func ParseTime(layout, value string) (*Time, error) {
+	t, err := time.Parse(layout, value)
+	if err != nil {
+		return nil, err
+	}
+	return &Time{t}, nil
+}
+
+func MustParseTime(layout, value string) *Time {
+	t, err := ParseTime(layout, value)
+	if err != nil {
+		panic(err)
+	}
+	return t
+}

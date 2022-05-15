@@ -47,7 +47,7 @@ func buildFile(raw *Data[*File, *FileLinks]) (*File, error) {
 	return obj, nil
 }
 
-func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *SingleResponse[*File, *FileLinks], error) {
+func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *SinglePayload[*File, *FileLinks], error) {
 	u := fmt.Sprintf("files/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)

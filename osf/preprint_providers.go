@@ -98,7 +98,7 @@ func buildPreprintProvider(raw *Data[*PreprintProvider, *PreprintProviderLinks])
 	return obj, nil
 }
 
-func (s *PreprintProvidersService) ListPreprintProviders(ctx context.Context, opts *PreprintProvidersListOptions) ([]*PreprintProvider, *ManyResponse[*PreprintProvider, *PreprintProviderLinks], error) {
+func (s *PreprintProvidersService) ListPreprintProviders(ctx context.Context, opts *PreprintProvidersListOptions) ([]*PreprintProvider, *ManyPayload[*PreprintProvider, *PreprintProviderLinks], error) {
 	u, err := addOptions("preprint_providers", opts)
 	if err != nil {
 		return nil, nil, err
@@ -117,7 +117,7 @@ func (s *PreprintProvidersService) ListPreprintProviders(ctx context.Context, op
 	return res.Data, res, nil
 }
 
-func (s *PreprintProvidersService) GetPreprintProviderByID(ctx context.Context, id string) (*PreprintProvider, *SingleResponse[*PreprintProvider, *PreprintProviderLinks], error) {
+func (s *PreprintProvidersService) GetPreprintProviderByID(ctx context.Context, id string) (*PreprintProvider, *SinglePayload[*PreprintProvider, *PreprintProviderLinks], error) {
 	u := fmt.Sprintf("preprint_providers/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)

@@ -6,12 +6,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
 	"sync"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/google/go-querystring/query"
 	"github.com/pkg/errors"
 )
@@ -21,6 +23,11 @@ const (
 	defaultBaseTestURL = "https://api.test.osf.io/v2/"
 
 	userAgent = "go-osf"
+
+	TypePreprints         = "preprints"
+	TypeProviders         = "providers"
+	TypePreprintProviders = "preprint_providers"
+	TypeFiles             = "files"
 )
 
 type Client struct {
@@ -118,7 +125,7 @@ type Links struct {
 
 // https://jsonapi.org/format/#document-resource-object-relationships
 type Relationship struct {
-	Links *Links                          `json:"links"`
+	Links *Links                          `json:"links,omitempty"`
 	Data  *Data[interface{}, interface{}] `json:"data,omitempty"`
 	Meta  Meta                            `json:"meta,omitempty"`
 }
@@ -126,16 +133,51 @@ type Relationship struct {
 type Relationships map[string]Relationship
 
 type Data[T any, U any] struct {
-	ID   string `json:"id"`
-	Type string `json:"type"`
+	Type string  `json:"type"`
+	ID   *string `json:"id,omitempty"`
 
-	Attributes    T             `json:"attributes"`
-	Links         U             `json:"links"`
-	Relationships Relationships `json:"relationships"`
+	Attributes    T             `json:"attributes,omitempty"`
+	Links         U             `json:"links,omitempty"`
+	Relationships Relationships `json:"relationships,omitempty"`
 }
 
-type SingleResponse[T any, U any] struct {
-	RawData *Data[T, U] `json:"data"`
+type ErrorSource struct {
+	Pointer string `json:"pointer"`
+}
+
+type Error struct {
+	Source *ErrorSource `json:"source,omitempty"`
+	Detail string       `json:"detail"`
+}
+
+func (e *Error) Error() string {
+	msg := e.Detail
+	if e.Source != nil {
+		msg += " (" + e.Source.Pointer + ")"
+	}
+	return msg
+}
+
+type Errors []*Error
+
+func (e Errors) Error() string {
+	if len(e) == 0 {
+		return ""
+	}
+	if len(e) == 1 {
+		return e[0].Error()
+	}
+
+	msgs := make([]string, 0)
+	for _, err := range e {
+		msgs = append(msgs, err.Error())
+	}
+	return "multiple errors: " + strings.Join(msgs, ", ")
+}
+
+type SinglePayload[T any, U any] struct {
+	RawData *Data[T, U] `json:"data,omitempty"`
+	Errors  Errors      `json:"errors,omitempty"`
 
 	Data T `json:"-"`
 }
@@ -153,9 +195,10 @@ type PaginationLinks struct {
 	Meta  *PaginationMeta `json:"meta"`
 }
 
-type ManyResponse[T any, U any] struct {
+type ManyPayload[T any, U any] struct {
 	RawData         []*Data[T, U]    `json:"data"`
 	PaginationLinks *PaginationLinks `json:"links"`
+	Errors          Errors           `json:"errors,omitempty"`
 
 	Data []T `json:"-"`
 	// TODO: Include more user-friendly attributes regarding paginations.
@@ -164,6 +207,8 @@ type ManyResponse[T any, U any] struct {
 // do performs logic for doSingle and doMany via generic a generic method.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
 func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
+	spew.Dump(req)
+
 	resp, err := c.client.Do(req)
 	if err != nil {
 		return nil, errors.Wrap(err, "http error")
@@ -174,18 +219,18 @@ func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
 	data := new(T)
 
 	// TODO: Remove this.
-	// body, err := ioutil.ReadAll(resp.Body)
-	// if err != nil {
-	// 	return nil, err
-	// }
-	// ioutil.WriteFile("dump.json", body, 0644)
-	// if err := json.NewDecoder(bytes.NewReader(body)).Decode(data); err != nil {
-	// 	return nil, errors.Wrap(err, "error unmarshaling payload")
-	// }
-
-	if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+	ioutil.WriteFile("dump.json", body, 0644)
+	if err := json.NewDecoder(bytes.NewReader(body)).Decode(data); err != nil {
 		return nil, errors.Wrap(err, "error unmarshaling payload")
 	}
+
+	// if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+	// 	return nil, errors.Wrap(err, "error unmarshaling payload")
+	// }
 
 	return data, nil
 }
@@ -214,16 +259,22 @@ type BuildDataFn[T any, U any] func(obj *Data[T, U]) (T, error)
 
 // doSingle performs a request for a single payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*SingleResponse[T, U], error) {
-	res, err := do[SingleResponse[T, U]](c, ctx, req)
+func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*SinglePayload[T, U], error) {
+	res, err := do[SinglePayload[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
 	}
 
+	if len(res.Errors) > 0 {
+		return res, res.Errors
+	}
+
 	// Inject ID into Attributes, if it exists.
-	idFieldIndex := getIDFieldIndex(res.RawData.Attributes)
-	if idFieldIndex != -1 {
-		reflect.ValueOf(res.RawData.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.RawData.ID))
+	if res.RawData.ID != nil {
+		idFieldIndex := getIDFieldIndex(res.RawData.Attributes)
+		if idFieldIndex != -1 {
+			reflect.ValueOf(res.RawData.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.RawData.ID).Elem())
+		}
 	}
 
 	if len(build) > 0 {
@@ -240,10 +291,14 @@ func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, b
 
 // doMany performs a request for a paginated payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*ManyResponse[T, U], error) {
-	res, err := do[ManyResponse[T, U]](c, ctx, req)
+func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*ManyPayload[T, U], error) {
+	res, err := do[ManyPayload[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
+	}
+
+	if len(res.Errors) > 0 {
+		return res, res.Errors
 	}
 
 	// Inject ID into T, if it exists.
@@ -252,7 +307,9 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 
 		if idFieldIndex != -1 {
 			for _, obj := range res.RawData {
-				reflect.ValueOf(obj.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(obj.ID))
+				if obj.ID != nil {
+					reflect.ValueOf(obj.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(obj.ID).Elem())
+				}
 			}
 		}
 	}
@@ -276,14 +333,15 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 }
 
 type ListOptions struct {
-	Page    int               `url:"page[number],omitempty"`
-	PerPage int               `url:"page[size],omitempty"`
-	Filter  map[string]string `url:"-"`
+	Page    int `url:"page[number],omitempty"`
+	PerPage int `url:"page[size],omitempty"`
+
+	Filter map[string]string `url:"-"`
 }
 
 // addOptions adds the parameters in opts as URL query parameters to s. opts
 // must be a struct whose fields may contain "url" tags.
-func addOptions(s string, opts interface{}) (string, error) {
+func addOptions(s string, opts interface{}, additionalQueries ...map[string]string) (string, error) {
 	v := reflect.ValueOf(opts)
 	if v.Kind() == reflect.Ptr && v.IsNil() {
 		return s, nil
