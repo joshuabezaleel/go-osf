@@ -35,9 +35,10 @@ type Client struct {
 
 	common service
 
-	Citations *CitationsService
-	Preprints *PreprintsService
-	Files     *FilesService
+	Citations         *CitationsService
+	Preprints         *PreprintsService
+	PreprintProviders *PreprintProvidersService
+	Files             *FilesService
 }
 
 type service struct {
@@ -61,6 +62,7 @@ func NewClient(httpClient *http.Client) *Client {
 	c.common.client = c
 	c.Citations = (*CitationsService)(&c.common)
 	c.Preprints = (*PreprintsService)(&c.common)
+	c.PreprintProviders = (*PreprintProvidersService)(&c.common)
 	c.Files = (*FilesService)(&c.common)
 	return c
 }
@@ -172,6 +174,17 @@ func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
 	defer resp.Body.Close()
 
 	data := new(T)
+
+	// TODO: Remove this.
+	// body, err := ioutil.ReadAll(resp.Body)
+	// if err != nil {
+	// 	return nil, err
+	// }
+	// ioutil.WriteFile("dump.json", body, 0644)
+	// if err := json.NewDecoder(bytes.NewReader(body)).Decode(data); err != nil {
+	// 	return nil, errors.Wrap(err, "error unmarshaling payload")
+	// }
+
 	if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
 		return nil, errors.Wrap(err, "error unmarshaling payload")
 	}

@@ -1,0 +1,3243 @@
+{
+    "data": [
+        {
+            "id": "africarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "AfricArXiv",
+                "description": "A free preprint service for African scientists",
+                "advisory_board": "<h2><strong>Steering Committee</strong></h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Obasegun Ayodele</strong>, Vilsquare.org, Nigeria </li>\n<li><strong>Fayza Mahmoud</strong>, Alexandria University, Egypt</li>\n<li><strong>Johanssen Obanda</strong>, Jabulani Youths for Transformation (JAY4T), Kenya</li>\n<li><strong>Umar Ahmad</strong>, University Putra Malaysia (UPM) and the Malaysia Genome Institute (MGI)</li>\n<li><strong>Michael Cary</strong>, West Virginia University, USA</li>\n<li><strong>Nada Fath</strong>, Mohamed V University &amp; Hassan II Institute of Agronomy and Veterinary Medicine, Rabat, Morocco</li>\n<li><strong>Greg Simpson</strong>, Cranfield University, England &amp; South Africa</li>\n</ul>\n</div>\n<ul>\n<li><strong>Hisham Arafat</strong>, EMEA Applications Consulting, Egypt</li>\n<li><strong>Justin Sègbédji Ahinon</strong>, AfricArXiv co-founder, IGDORE, Bénin</li>\n<li><strong>Mahmoud M Ibrahim</strong>, Uniklinik RWTH Aachen, Germany &amp; Egypt</li>\n<li><strong>Luke Okelo</strong>, Technical University of Kenya </li>\n<li><strong>Ryszard Auksztulewicz</strong>, MPI of Empirical Aesthetics, Germany &amp; City University of Hong Kong</li>\n<li><strong>Osman Aldirdiri</strong>, University of Khartoum, Sudan</li>\n<li><strong>Jo Havemann</strong>, AfricArXiv co-founder, Access 2 Perspectives‘, IGDORE, Germany &amp; Kenya</li>\n</ul>",
+                "example": "ahv2t",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span><span style=\"vertical-align: baseline;\">AfricArXiv: <a href=\"https://info.africarxiv.org/\">About</a> | </span></span><span><span style=\"vertical-align: baseline;\"><a href=\"https://info.africarxiv.org/before-you-submit/\" target=\"_blank\">Submission Guidelines</a> | </span></span><span><span style=\"vertical-align: baseline;\"><a href=\"mailto:support+africarxiv@osf.io\">Support</a> | <a href=\"mailto:contact+africarxiv@osf.io\">Contact</a> |</span></span><span style=\"text-align: center;\"> </span><a href=\"https://twitter.com/AfricArxiv\" style=\"text-align: center;\" target=\"_blank\" title=\"AfricArxiv on Twitter\"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><span style=\"text-align: center;\"> </span><a href=\"https://www.facebook.com/africarxiv\" style=\"text-align: center;\" target=\"_blank\" title=\"AfricArxiv on Facebook\"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+africarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-2.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+africarxiv@osf.io",
+                "social_twitter": "https://twitter.com/AfricArxiv",
+                "social_facebook": "https://www.facebook.com/africarxiv",
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/africarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/africarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/africarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/africarxiv/preprints/"
+            }
+        },
+        {
+            "id": "agrixiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "AgriXiv",
+                "description": "Preprints for Agriculture and Allied Sciences is moving to <a href=\"https://agrirxiv.org/\">agriRxiv</a> and is no longer accepting submissions.",
+                "advisory_board": "<h2 class=\"col-xs-6\">Advisory Board</h2>\n<h2 class=\"col-xs-6\">Working Group</h2>\n<p class=\"m-b-lg\"></p>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Abeer Elhalwagi</b>, National Gene Bank, Egypt</li>\n<li><b>Ajit Maru</b>, Global Forum on Agricultural Research</li>\n<li><b>Bernard Pochet</b>, University of Liège - Gembloux Agro-Bio Tech</li>\n<li><b>Dinesh Kumar</b>, Indian Agricultural Statistics Research Institute</li>\n<li><b>Oya Yildirim Rieger</b>, Cornell University</li>\n<li><b>Prateek Mahalwar</b>, Ernst &amp; Young GmbH Wirtschaftsprüfungsgesellschaft</li>\n<li><b>Satendra Kumar Singh</b>, Indian Council of Agricultural Research</li>\n<li><b>Vassilis Protonotarios</b>, Neuropublic</li>\n<li><b>Vinodh Ilangovan</b>, Max Planck Institute for Biophysical Chemistry</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Chandni Singh</b>, Indian Institute for Human Settlements</li>\n<li><b>Gopinath KA</b>, Central Research Institute for Dryland Agriculture</li>\n<li><b>Ivonne Lujano</b>, University of the State of Mexico</li>\n<li><b>Khelif Karima</b>, Institut National de la Recherche Agronomique d'Algérie</li>\n<li><b>Kuldeep Singh Jadon</b>, Central Arid Zone Research Institute</li>\n<li><b>Paraj Shukla</b>, King Saud University</li>\n<li><b>Sridhar Gutam</b>, ICAR RCER Research Centre/Open Access India</li>\n<li><b>Sumant Vyas</b>, National Research Centre on Camel</li>\n<li><b>Susmita Das</b>, Bangladesh Agricultural Research Council</li>\n</ul>\n</div>",
+                "example": "8whkp",
+                "domain": "https://agrixiv.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>AgriXiv: </span><a href=\"mailto:support+agrixiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+agrixiv@osf.io\">Contact</a> <span>| </span><a href=\"https://twitter.com/AgriXiv\" target=\"_blank\" title=\"AgriXiv on Twitter\"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.facebook.com/AgriXiv/\" target=\"_blank\" title=\"AgriXiv on Facebook\"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.instagram.com/agrixiv/\" target=\"_blank\" title=\"AgriXiv on Instagram\"><span class=\"fa fa-instagram fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license. This license should not be understood to indicate endorsement of content on AgriXiv by Cornell University or arXiv.</span></p>",
+                "email_support": "support+agrixiv@osf.io",
+                "facebook_app_id": 1435929069870282,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-3.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": true,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+agrixiv@osf.io",
+                "social_twitter": "AgriXiv",
+                "social_facebook": "agrixiv",
+                "social_instagram": "agrixiv",
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/agrixiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/agrixiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/agrixiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/agrixiv/preprints/"
+            }
+        },
+        {
+            "id": "arabixiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "Arabixiv",
+                "description": "<p style=\"\"><span style=\"vertical-align: baseline;\">ArabXiv </span><span style=\"vertical-align: baseline;\">is no longer able to accept new submissions. Existing content in this repository will remain accessible as part of COS’s ongoing commitment to Open Science. If it is important to you that free author submissions to this site continue, please consider contacting Khaled Moustafa (</span><a href=\"mailto:khaled.moustafa@arabixiv.org\" style=\"\"><span style=\"vertical-align: baseline;\">khaled.moustafa@arabixiv.org</span></a><span style=\"vertical-align: baseline;\">) </span><span style=\"vertical-align: baseline;\"> to express your interest in supporting this service.</span></p>\n<span style=\"vertical-align: baseline;\"> </span>",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Dr. Abd Al-Rahman Teama</strong>, Cairo University, Egypt</li>\n<li><strong>Dr. Abdelhafid Elouardi</strong>, Paris-Sud University, Orsay, France</li>\n<li><strong>Dr. Abdelkrim Rachedi</strong>, University Saida, Algeria</li>\n<li><strong>Dr. Abderrahim Hantoute</strong>, University of Chile, Santiago, Chile</li>\n<li><strong>Dr. Ahmed A. Al-Emadi</strong>, Dean of the College of Education, Qatar University, Qatar</li>\n<li><strong>Dr. Alaa El-Din Sayed</strong>, Assiut University, Assiut, Egypt</li>\n<li><strong>Dr. Ali Abdulhamid Tourki</strong>, Vice Dean of the College of Law, Sharjah University, UAE</li>\n<li><strong>Dr. Ali Ammar</strong>, University of Tlemcen, Algeria</li>\n<li><strong>Dr. Faouzi Bendridi</strong>, Souk Ahras University, Algeria</li>\n<li><strong>Dr. Gihan Hussein</strong>, Agricultural Research Center, Giza, Egypt</li>\n<li><strong>Dr. Hamdadou Benamar</strong>, University of Oran 1, Algeria</li>\n<li><strong>Dr. Hedi Ben Mansour</strong>, Director of the Higher Institute of Applied Sciences and Technology, University of Monastir, Tunisia</li>\n<li><strong>Dr. Ibraheem Nasser</strong>, King Fahd University of Petroleum &amp; Minerals, Dhahran, Saudi Arabia</li>\n<li><strong>Dr. Khaled El-Tarabily</strong>, United Arab Emirates University, Al-Ain, UAE</li>\n<li><strong>Dr. Khaled Moustafa</strong>, Founder of the Arabic Science Archive, Paris, France</li>\n<li><strong>Dr. Oussama Amirat</strong>, Ecole Normale Supérieure de Sétif, Algeria</li>\n<li><strong>Dr. Khalil Alkhateeb</strong>, Sanaa University, Yemen</li>\n<li><strong>Dr. Mahmoud Siefeldin Gomaa</strong>, Imam Abdulrahman Bin Faisal University, Dammam, Saudi Arabia</li>\n<li><strong>Dr. Mahmoud Solh</strong>, Director of the International Center for Agricultural Research in the Dry Areas (ICARDA), Lebanon</li>\n</ul>\n</div>\n<ul>\n<li><strong>Dr. Mohamed Ali Morsy</strong>, King Fahd University of Petroleum &amp; Minerals, Dhahran, Saudi Arabia</li>\n<li><strong>Dr. Mohamed Mokhles</strong>, Taibah University, Saudi Arabia</li>\n<li><strong>Dr. Nadhira Achouri</strong>, University Constantine 2, Algeria</li>\n<li><strong>Dr. Nezar Hassan Khdary</strong>, King Abdulaziz City for Science and Technology, Riyadh, Saudi Arabia</li>\n<li><strong>Dr. Rabah Benkhouya,</strong> Bachir El Ibrahimi University, Bordj Bou Arreridj, Algeria</li>\n<li><strong>Dr. Said Fahem,</strong> Mouloud Mammeri University, Tizi-Ouzou, Algeria</li>\n<li><strong>Dr. Samer Rudwan,</strong> University of Nizwa, Oman</li>\n<li><strong>Dr. Seif M. Gasim</strong>, University of Khartoum, Sudan</li>\n<li><strong>Dr. Sophien Kamoun</strong>, the Sainsbury Laboratory, Norwich Research Park, United Kingdom</li>\n<li><strong>Dr. Yousef Nazzal</strong>, Zayesod University, Abu Dhabi, UAE</li>\n<li><strong>Imene Madani</strong>, University Blida 2, Algeria</li>\n<li><strong>Dr. Meslem Dia-Eddine</strong>, Professor of Arabic, Algeria</li>\n<li><strong>Dr. Aceil Al-Khatib</strong>, Jordan University of Science and Technology, Irbid, Jordan</li>\n<li><strong>Dr. Awatif Hassan Ali</strong>, Sudan University of Science and Technology, Sudan</li>\n<li><strong>Dr. Mustapha Elbouassaoun</strong>, Morocco</li>\n<li>Dr. Elyazid Belamish, Emir Abd Elkader University, Constantine, Algeria</li>\n<li><strong>Dr. Tamer El-Moghazy, Agriculture Research Center, Egypt</strong></li>\n<li>Dr. Abdelkarim Benamira, Abd Elkader University, Constantine, Algeria</li>\n<li><strong>Dr. Samer Barakat</strong>, Applied Science University, Amman, Jordan</li>\n</ul>",
+                "example": "khbvy",
+                "domain": "https://arabixiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p><span>Arabixiv: <a href=\"http://about.arabixiv.org/\" target=\"_blank\">About</a> | </span><a href=\"mailto:support+arabixiv@osf.io\">Support</a><span> | </span><a href=\"mailto:contact+arabixiv@osf.io\">Contact</a><span> </span></p>",
+                "email_support": "support+arabixiv@osf.io",
+                "facebook_app_id": 1210084655791971,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-4.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+arabixiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/arabixiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/arabixiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/arabixiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/arabixiv/preprints/"
+            }
+        },
+        {
+            "id": "biohackrxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "BioHackrXiv",
+                "description": "<span>Preprints for BioHackathons</span>",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Toshiaki Katayama</strong>, DBCLS</li>\n<li><strong>Leyla Garcia</strong>, ZBMED</li>\n<li><strong>Jennifer Harrow</strong>, ELIXIR Europe</li>\n<li><strong>Pjotr Prins</strong>, UTHSC</li>\n<li><strong>Alexander Garcia</strong>, BASF</li>\n<li><strong>Tazro Ohta</strong>, DBCLS</li>\n</ul>\n</div>\n<ul>\n<li>\n<ul>\n<li><strong>Jin-Dong Kim</strong>, DBCLS</li>\n<li><strong>Shweta Bagewadi Kawalia</strong>, BASF</li>\n<li><strong>Erick Antezana</strong>, BAYER</li>\n<li><strong>Ioanna Kalvari</strong>, EMBL-EBI</li>\n<li><strong>Ben Busby</strong>, NCBI</li>\n</ul>\n</li>\n</ul>",
+                "example": "8qdse",
+                "domain": "https://biohackrxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p><strong>BioHackrXiv: <a href=\"mailto:support+biohackrxiv@osf.io\"> Support</a> | <a href=\"mailto:contact+biohackrxiv@osf.io\">Contact</a></strong></p>\n<p><strong><a href=\"http://guide.biohackrxiv.org/about.html\">About</a> | <a href=\"http://guide.biohackrxiv.org/submission_guidelines.html\">Submission guidelines </a> | <a href=\"http://guide.biohackrxiv.org/moderation_process.html\">Moderation process </a> | <a href=\"http://guide.biohackrxiv.org/journal_policies.html\">Journal policies </a> | <a href=\"http://guide.biohackrxiv.org/faq.html\">FAQ</a></strong></p>",
+                "email_support": "support+biohackrxiv@osf.io",
+                "facebook_app_id": 2126780857466535,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "style": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/style.css",
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent_evpobDe.png"
+                },
+                "share_source": "BioHackrXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+biohackrxiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/biohackrxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/biohackrxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/biohackrxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/biohackrxiv/preprints/"
+            }
+        },
+        {
+            "id": "bodoarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "BodoArXiv",
+                "description": "Open Repository for Medieval Studies <br>Visit <a href=\"https://bodoarxiv.wordpress.com/\">BodoArXiv.org</a> to learn more.",
+                "advisory_board": "<h2>Founding directors</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Guy Geltner</strong>, Monash University</li>\n</ul>\n</div>\n<ul>\n<li><strong>Daniel Lord Smail</strong>, Harvard University</li>\n</ul>\n<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Armies and Warfare</b>: John Haldon (Princeton University) / Nicole Archambeau (Colorado State University)</li>\n<li><strong>Archaeology</strong>: Sharon DeWitte (University of South Carolina) / Caroline Goodson (Cambridge University)</li>\n<li><strong>Art and Architecture</strong>: Therese Martin (CSIC Madrid) / Stephennie Mulder (University of Texas at Austin)</li>\n<li><strong>Byzantium</strong>: Michael Grünbart (West Westfälische Wilhelms-Universität)</li>\n<li><strong>Digital Scholarship</strong>: Laura Morreale (Independent Scholar) and Kathryne Beebe (University of North Texas)</li>\n<li><strong>Economy and Trade</strong>: Justyna Wubs-Mrozewicz (Universiteit van Amsterdam) / Maryanne Kowaleski (Fordham University)</li>\n<li><strong>Environment</strong>: Timothy Newfield (Georgetown University) / Paolo Squatriti (University of Michigan at Ann Arbor)</li>\n<li><strong>Islamicate World</strong>: Kristina Richardson (Queens College) / Maaike van Berkel (Radboud Universiteit, Nijmegen)</li>\n</ul>\n</div>\n<ul>\n<li><strong>Law</strong>: Helle Vogt (Københavns Universitet) / Kenneth Pennington (Catholic University of America)</li>\n<li><strong>Literature</strong>: Fiona Somerset (University of Connecticut) / Sarah Baccianti (Queens University Belfast)</li>\n<li><strong>Manuscripts, Archives and Codicology</strong>: Damien Kempf (University of Liverpool) / Kathryn Rudy (University of St Andrews)</li>\n<li><strong>Medicine, Science and Technology</strong>: Joseph Ziegler (University of Haifa) / Justin Stearns (New York University, Abu Dabi)</li>\n<li><strong>Philosophy and Theology</strong>: Daniel Schwartz (Texas A&amp;M University)</li>\n<li><strong>Politics</strong>: Ana Rodriguez (CSIC Madrid) / Kathleen Neal (Monash University)</li>\n<li><strong>Religion</strong>: Celia Chazelle (The College of New Jersey) / Neslihan Şenocak (Columbia University)</li>\n<li><strong>Society and Culture</strong>: Franz-Josef Arlinghaus (Universität Bielefeld) / Miri Rubin (Queen Mary University of London)</li>\n</ul>",
+                "example": null,
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>BodoArXiv: <a href=\"https://bodoarxiv.org\" target=\"_blank\">About</a> | </span><a href=\"mailto:support+bodoarxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+bodoarxiv@osf.io\">Contact</a> </p>\n<p><span>arXiv is a trademark of Cornell University, used under license. This license should not be understood to indicate endorsement of content on BodoRxiv by Cornell University or arXiv.</span></p>",
+                "email_support": "support+bodoarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent_gNfoskO.png"
+                },
+                "share_source": "BodoArXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "work",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+bodoarxiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/bodoarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/bodoarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/bodoarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/bodoarxiv/preprints/"
+            }
+        },
+        {
+            "id": "eartharxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "EarthArXiv",
+                "description": "<p class=\"p1\">EarthArXiv.org is now hosted by the California Digital Library (CDL). The EarthArXiv.org URL now redirects to the CDL Janeway platform. All article DOIs will redirect to CDL and we encourage users to check the EarthArXiv CDL Janeway system for potential new versions of manuscripts.</p>",
+                "advisory_board": "<h2>Advisory Council</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li>Alodie Bubeck, Lettis Consultants International, California, USA</li>\n<li>Zheng Chen, DXi'an Jiaotong - Liverpool University, China</li>\n<li>Joshua Dean, University of Liverpool, UK</li>\n<li>Allison Enright, University of New Brunswick, Canada</li>\n<li>Jamie Farquharson, University of Miami, USA</li>\n<li>Luciano Fleischfresser, UTFPR, Brazil</li>\n<li>Stéphanie Girardclos, University of Geneva, Switzerland</li>\n<li>Daniel Ibarra, University of California, Berkeley, USA</li>\n<li>Chris Jackson, Imperial College London, UK</li>\n</ul>\n</div>\n<ul>\n<li>Neha Mehta, CNRS/Sorbonne University/UPMC, France</li>\n<li>Tom Narock, Goucher College, USA</li>\n<li>Lauren O'Connor, University of Arizona, USA</li>\n<li>Manish Pandey, Universty Center for Research &amp; Development, Chandigarh University, India</li>\n<li>Angelo Pio Rossi, Jacobs University Bremen, Germany</li>\n<li>Daniel Pastor-Galán, Tohoku University, Japan</li>\n<li>Leonardo Uieda, University of Liverpool, UK</li>\n<li>Rebecca Williams, University of Hull, UK</li>\n</ul>\n<p></p>",
+                "example": "8r6kt",
+                "domain": "https://eartharxiv.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>EarthArXiv: <a href=\"https://eartharxiv.github.io\">About</a> | <a href=\"https://eartharxiv.github.io/moderation.html\" target=\"_blank\">Moderation Policy</a> | </span><a href=\"mailto:support+eartharxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+eartharxiv@osf.io\">Contact </a> <span>| </span><a href=\"https://twitter.com/eartharxiv\" target=\"_blank\" title=\"Eartharxiv on Twitter\"><span class=\"fa fa-twitter fa-2x\"> </span></a></p>",
+                "email_support": "support+eartharxiv@osf.io",
+                "facebook_app_id": 193517681406434,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-6.png"
+                },
+                "share_source": "EarthArXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+eartharxiv@osf.io",
+                "social_twitter": "@EarthArXiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/eartharxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/eartharxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/eartharxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/eartharxiv/preprints/"
+            }
+        },
+        {
+            "id": "ecoevorxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "EcoEvoRxiv",
+                "description": "<span>A free preprint service for ecology, evolution and conservation. </span><span>Visit </span><a href=\"https://www.ecoevorxiv.com\" target=\"_blank\">ecoevorxiv.com</a><span> for more information.</span>",
+                "advisory_board": "<h2><strong>Steering Committee</strong></h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Amber Budden</strong>, DataOne, USA</li>\n<li><strong>Julia Schroeder</strong>, Imperial College London, UK</li>\n<li><strong>Daniel Noble</strong>, Australian National University, Australia</li>\n<li><strong>Fiona Fidler</strong>, University of Melbourne, Australia</li>\n<li><strong>Hannah Dugdale</strong>, University of Leeds, UK<strong></strong></li>\n<li><strong>Joanna Rutkowska</strong>, Jagiellonian University, Poland</li>\n<li><strong>Eduardo Santos</strong>, Universidade de São Paulo, Brazil</li>\n</ul>\n</div>\n<ul>\n<li><strong>Matt Jones</strong>, University of California, Santa Barbara, USA</li>\n<li><strong>Matthew Pennell</strong>, University of British Columbia, Canada</li>\n<li><strong>Naupaka Zimmerman</strong>, University of San Francisco, USA</li>\n<li><strong>Shinichi Nakagawa</strong>, UNSW Sydney, Australia</li>\n<li><strong>Tim Parker</strong>, Whitman Colleage, USA</li>\n<li><strong>W. Edwin Harris</strong>, Manchester Metropolitan University, UK</li>\n<li><strong>Will Cornwell</strong>, UNSW Sydney, Australia<strong></strong></li>\n</ul>\n<p></p>",
+                "example": "ajyqg",
+                "domain": "https://ecoevorxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>EcoEvoRxiv: <a href=\"https://www.ecoevorxiv.com\" target=\"_blank\">About</a> | <a href=\"mailto:support+evoecorxiv@osf.io\">Support</a> | <a href=\"mailto:contact+evoecorxiv@osf.io\">Contact</a> | <a href=\"https://twitter.com/EcoEvoRxiv\" target=\"_blank\" title=\"EcoEvoRxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+ecoevorxiv@osf.io",
+                "facebook_app_id": 1992429104225397,
+                "allow_submissions": true,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-29-2.png"
+                },
+                "share_source": "EcoEvoRxiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+ecoevorxiv@osf.io",
+                "social_twitter": "@EcoEvoRxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/ecoevorxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/ecoevorxiv/preprints/"
+            }
+        },
+        {
+            "id": "ecsarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "ECSarXiv",
+                "description": "<span>a free preprint service for electrochemistry and solid state science and technology</span>",
+                "advisory_board": "",
+                "example": "t635x",
+                "domain": "https://ecsarxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>ECSarXiv: <a href=\"https://www.electrochem.org/ecsarxiv/\">About</a> | <a href=\"mailto:support+ecsarxiv@osf.io\">Support</a> | <a href=\"mailto:contact+ecsarxiv@osf.io\">Contact</a> | <a href=\"https://twitter.com/ecsarxiv\" title=\"ecsarxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.facebook.com/TheElectrochemicalSociety\" target=\"_blank\" title=\"ecsarxiv on Facebook \"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+ecsarxiv@osf.io",
+                "facebook_app_id": 495944630803642,
+                "allow_submissions": true,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-7.png"
+                },
+                "share_source": "ECSarXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+ecsarxiv@osf.io",
+                "social_twitter": "@ecsarxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/ecsarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/ecsarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/ecsarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/ecsarxiv/preprints/"
+            }
+        },
+        {
+            "id": "edarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "EdArXiv",
+                "description": "<span><span style=\"vertical-align: baseline;\">A Preprint Server For The Education Research Community</span></span>",
+                "advisory_board": "<h2><strong>Steering Committee:</strong></h2>\n<div class=\"col-xs-6\">\n<ul>\n<li>Amanda Montoya, University of California Los Angeles (Chair)</li>\n<li>Justin Reich, Massachusettes Institute of Technology (Vice Chair)</li>\n<li><strong>Bryan Cook</strong>, University of Virginia (Moderation Co-Chair)</li>\n<li><strong>Jesse Fleming</strong>, University of Virginia (Moderation Co-Chair)</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Emily Nordmann, </strong>University of Glasgow (Communication Chair)</li>\n<li>Matt Makel, John Hopkins University (Fundraising Chair)</li>\n<li><strong>Stacy Shaw</strong>, Worcester Polytechnic Institute (Liaison)</li>\n<li><strong>Hunter Gehlbach</strong>, University of Califorinia Santa Barbara (Member At Large)</li>\n</ul>\n</div>\n<ul></ul>\n<p></p>\n<p></p>\n<p></p>\n<p></p>\n<p></p>\n<p></p>\n<p></p>",
+                "example": "khbvy",
+                "domain": "https://edarxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>EdArXiv: <a href=\"https://drive.google.com/a/g.ucla.edu/file/d/1vz0zkYoCc9TsbeBUU3rL5x_QYhqnZvfP/view?usp=sharing\">About</a> | <a href=\"mailto:support+edarxiv@osf.io\">Support</a> | <a href=\"mailto:contact+edarxiv@osf.io\">Contact</a></p>",
+                "email_support": "support+edarxiv@osf.io",
+                "facebook_app_id": 619833305387590,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent.png"
+                },
+                "share_source": "EdArXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+edarxiv@osf.io",
+                "social_twitter": "@edarxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/edarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/edarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/edarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/edarxiv/preprints/"
+            }
+        },
+        {
+            "id": "engrxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "engrXiv",
+                "description": "<span>The Engineering Archive will be closed to new preprint submissions temporarily and moved to <a href=\"https://engrxiv.org/\">https://engrxiv.org/</a> beginning Wednesday, January 19th.</span>",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n<p class=\"m-b-lg\">engrXiv is directed by a steering committee of engineers and members of the engineering librarian community. They are:</p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"http://libguides.mit.edu/profiles/psayers\">Phoebe Ayers</a>, librarian, Massachusetts Institute of Technology</li>\n<li><a href=\"http://stem.gwu.edu/lorena-barba\">Lorena A. Barba</a>, aerospace engineer, The George Washington University</li>\n<li><a href=\"http://www.devinberg.com/\">Devin R. Berg</a>, mechanical engineer, University of Wisconsin-Stout</li>\n<li><a href=\"http://mime.oregonstate.edu/people/dupont\">Bryony Dupont</a>, mechanical engineer, Oregon State University</li>\n<li><a href=\"http://directory.uark.edu/people/dcjensen\">David Jensen</a>, mechanical engineer, University of Arkansas</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"https://kevinmoerman.org/\">Kevin Moerman</a>, biomechanical engineer, National University of Ireland Galway</li>\n<li><a href=\"http://www.moorepants.info/\">Jason Moore</a>, mechanical engineer, Delft University of Technology</li>\n<li><a href=\"http://kyleniemeyer.com/\">Kyle Niemeyer</a>, mechanical engineer, Oregon State University</li>\n<li><a href=\"http://www.douglasvanbossuyt.com/\">Douglas Van Bossuyt</a>, mechanical engineer, KTM Research</li>\n</ul>\n</div>",
+                "example": "k7fgk",
+                "domain": "https://engrxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p><span>engrXiv: <a href=\"http://blog.engrxiv.org/about/\" target=\"_blank\">About</a> | </span><a href=\"mailto:support+engrxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+engrxiv@osf.io\">Contact</a> <span>| </span><a href=\"https://twitter.com/engrxiv\" target=\"_blank\" title=\"engrxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\">  </span></a><a href=\"https://www.facebook.com/engrXiv\" target=\"_blank\" title=\"engrxiv on Facebook \"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.instagram.com/engrxiv/\" target=\"_blank\" title=\"engrxiv on Instagram\"><span class=\"fa fa-2x fa-instagram\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license. This license should not be understood to indicate endorsement of content on engrXiv by Cornell University or arXiv.</span></p>",
+                "email_support": "support+engrxiv@osf.io",
+                "facebook_app_id": 162943167839939,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-8.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+engrxiv@osf.io",
+                "social_twitter": "engrxiv",
+                "social_facebook": "engrXiv",
+                "social_instagram": "engrxiv",
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/engrxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/engrxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/engrxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/engrxiv/preprints/",
+                "external_url": "http://engrxiv.com"
+            }
+        },
+        {
+            "id": "focusarchive",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "FocUS Archive",
+                "description": "A free preprint service for the focused ultrasound research community.",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Matt Eames</strong>, Ph.D.</li>\n<li><strong>John Snell</strong>, Ph.D.</li>\n<li><strong>Jessica Foley</strong>, Ph.D.</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Kelsie Timbie</strong>, Ph.D.</li>\n<li><strong>Emily White</strong>, M.D.</li>\n<li><strong>Tim Meakem</strong>, M.D.</li>\n</ul>\n</div>",
+                "example": null,
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>FocUS Archive: <a href=\"mailto:support+focusarchive@osf.io\">Support </a>| <a href=\"mailto:contact+focusarchive@osf.io\">Contact </a>| <a href=\"https://twitter.com/FUSFoundation\" title=\"FocUS Archive on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.facebook.com/focusedultrasound/\" target=\"_blank\" title=\"FocUS Archive on Facebook \"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.youtube.com/user/FUSFoundation\" title=\"FocUS Archive on Youtube \"><span class=\"fa fa-youtube-square fa-2x\" style=\"vertical-align: middle;\"> </span></a><a href=\"https://www.linkedin.com/company-beta/807202/\" title=\"FocUS Archive on Linkedin \"><span class=\"fa fa-linkedin-square fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+focusarchive@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-9.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": true,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+focusarchive@osf.io",
+                "social_twitter": "FUSFoundation",
+                "social_facebook": "focusedultrasound",
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/focusarchive/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/focusarchive/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/focusarchive/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/focusarchive/preprints/"
+            }
+        },
+        {
+            "id": "frenxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "Frenxiv",
+                "description": "<p><span style=\"vertical-align: baseline;\">Frenxiv is no longer able to accept new submissions. Existing content in this repository will remain accessible as part of COS’s ongoing commitment to Open Science. If it is important to you that free author submissions to this site continue, please consider contacting Khaled Moustafa (khaledmoustafa@gmail.com)  to express your interest in supporting this service.</span></p>\n<span style=\"vertical-align: baseline;\"> </span> <span style=\"vertical-align: baseline;\"> </span>",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Abdelhafid Elouardi</strong>, Paris-Sud University, Orsay, France</li>\n<li><strong>Abderrahim Hantoute</strong>, University of Chile, Santiago, Chile</li>\n<li><strong>Björn Brembs</strong>, Universität Regensburg, Regensburg, Germany</li>\n<li class=\"MsoNormal\"><strong>Cyrille Joutard</strong>, Université de Montpellier, Montpellier, France</li>\n<li><strong>Sophien Kamoun</strong>, the Sainsbury Laboratory, Norwich Research Park, United Kingdom</li>\n</ul>\n</div>\n<ul>\n<li><strong>Khaled Moustafa</strong>, Founder of FrenXiv, Paris, France </li>\n<li><b>Laurent Siebenmann, </b>Université Paris Sud, Orsay, France</li>\n<li><strong>Paquito Bernard</strong>, Université du Québec à Montréal (UQAM), Canada</li>\n<li><strong>Mario Pagliaro</strong>, Italy's Research Council, Palermo, Italy</li>\n</ul>",
+                "example": "khbvy",
+                "domain": "https://frenxiv.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>Frenxiv: </span><a href=\"mailto:support+frenxiv@osf.io\">Support</a><span> | </span><a href=\"mailto:contact+frenxiv@osf.io\">Contact</a><span> </span></p>",
+                "email_support": "support+frenixiv@osf.io",
+                "facebook_app_id": 226139944624097,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-28.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+frenxiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/frenxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/frenxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/frenxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/frenxiv/preprints/"
+            }
+        },
+        {
+            "id": "inarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "INA-Rxiv",
+                "description": "<span><span title=\"\">With a heavy heart, we close the INArxiv service starting October 7, 2020. Thank you for your participation and support as users until now.</span> <span title=\"\">You are supporters of the openness of science in Indonesia.</span> <span title=\"\">We also thank COS for its continuous support for the development of open science in Indonesia.</span><br><br><span title=\"\">For your next preprint document, we recommend uploading it to <a href=\"https://rinarxiv.lipi.go.id\">RINarxiv</a>.</span> <span title=\"\">We have explained it in more detail in the following <a href=\"https://medium.com/open-science-indonesia/cek-mandiri-dokumen-inarxiv-6ce62f10abb9?source=collection_archive---------5----\">podcast </a></span><br><span title=\"\">Become open or fall behind, </span></span><span>Dasapta Erwin Irawan (on behalf of Indonesia Open Science Team)</span>",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Dasapta Erwin Irawan</strong>: Faculty of Earth Sciences and Technology, Institut Teknologi Bandung</li>\n<li><strong>Sparisoma Viridi</strong>: Faculty of Mathematics and Natural Sciences, Institut Teknologi Bandung</li>\n</ul>\n</div>\n<ul>\n<li><strong>Eueung Mulyana</strong>: School of Electrical Engineering and Informatics, Institut Teknologi Bandung</li>\n<li><strong>Lusia Marliana Nurani</strong>: Faculty of Arts and Design, Institut Teknologi Bandung</li>\n</ul>",
+                "example": "khbvy",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>INA-Rxiv: <a href=\"https://medium.com/open-science-indonesia\">About</a> | <a href=\"mailto:support+inarxiv@osf.io\">Support </a>| <a href=\"mailto:contact+inarxiv@osf.io\">Contact </a>|<a href=\"https://twitter.com/OpenScience_ID\" target=\"_blank\" title=\"INA-Rxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+inarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-25.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": true,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+inarxiv@osf.io",
+                "social_twitter": "https://twitter.com/OpenScience_ID",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/inarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/inarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/inarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/inarxiv/preprints/"
+            }
+        },
+        {
+            "id": "indiarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "IndiaRxiv",
+                "description": "<p><span style=\"vertical-align: baseline;\">IndiaRxiv is no longer able to accept new submissions. Existing content in this repository will remain accessible as part of COS’s ongoing commitment to Open Science. If it is important to you that free author submissions to this site continue, please consider contacting Sridhar Gutam at </span><span style=\"vertical-align: baseline;\">sridhar@openaccessindia.org</span><span style=\"vertical-align: baseline;\"> to express your interest in supporting the service.</span></p>\n<span style=\"vertical-align: baseline;\"> </span>",
+                "advisory_board": "<h2><strong>Advisory Board</strong></h2>\n<ul>\n<li><strong>Harinder Pal Singh Kalra</strong>, Panjabi University</li>\n<li><strong>Inderjeet Kaur</strong>, LV Prasad Eye Institute</li>\n<li><strong>Leena Shah</strong>, DOAJ</li>\n<li><strong>Mahesh Chander</strong>, ICAR-IVRI</li>\n<li><strong>Neeta Goel</strong>, 3ie</li>\n<li><strong>Nirmala Menon</strong>, IIT Indore</li>\n<li><strong>Niti Saxena</strong>, Sehgal Foundation</li>\n<li><strong>Partha Pratim Das</strong>, IIT Kharagpur</li>\n<li><strong>Praveen Chaddah</strong>, INSA</li>\n<li><strong>Shalini Urs</strong>, MYRA<strong></strong></li>\n</ul>\n<div class=\"col-xs-12\">\n<h2><strong>Steering Committee</strong></h2>\n<p class=\"m-b-lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Aadi Narayana Varma Dantuluri</strong>, Profeza</li>\n<li><strong>Abhishek Srivastava</strong>, IIM Ranchi</li>\n<li><strong>Anand Das, </strong>Vienna University of Technology</li>\n<li><strong>Anup Kumar Das, </strong>JNU/Open Access India</li>\n<li><strong>Aparna Radhakrishnan</strong>, Kerala Agricultural University</li>\n<li><strong>Bipin Singh</strong>, BML Munjal</li>\n<li><strong>Biswapriya Misra</strong>, Wake Forest School of Medicine</li>\n<li><strong>Gorla Praveen</strong>, Asian Institute of Technology</li>\n<li><strong>Harsh Chaturvedi, </strong>IIT Guwahati</li>\n<li><strong>Jayalakshmi Mitnala, </strong>Acharya N.G. Ranga Agricultural University</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Manu Awasthi</strong>, Ashoka University</li>\n<li><strong>Mayank Singh, </strong>IIT Gandhinagar</li>\n<li><strong>Mayank Trivedi</strong>, Maharaja Sayajirao University</li>\n<li><strong>Nishikant Wase, </strong>University of Nebraska-Lincoln</li>\n<li><strong>Raj Rajeshwar Malinda</strong>, National Institute for Basic Biology, Japan</li>\n<li><strong>Seethapathy GS</strong>, University of Oslo</li>\n<li><strong>Sridhar Gutam</strong>, ICAR-IIHR/Open Access India</li>\n<li><strong>Stuti Saxena</strong>, Central University of Haryana</li>\n<li><strong>Tanmoy Chakraborty</strong>, IIIT Delhi</li>\n<li><strong>Tariq Ashraf</strong>, Delhi University</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul></ul>\n<ul></ul>\n</div>",
+                "example": null,
+                "domain": "https://indiarxiv.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><a href=\"http://indiarxiv.in\">IndiaRxiv</a>|<span><a href=\"https://www.facebook.com/indiarxiv/\" title=\"IndiaRxiv on Facebook \"> <span class=\"fa fa-facebook\"> </span></a> </span>| <a href=\"https://twitter.com/indiarxiv\" title=\"IndiaRxiv on Twitter \"><span class=\"fa fa-twitter\"> </span></a></p>\n<p><a href=\"https://arxiv.org/\" target=\"_blank\">arXiv</a><span> is a trademark of </span><a href=\"https://www.cornell.edu/\" target=\"_blank\">Cornell University</a><span>. </span><a href=\"https://indiarxiv.org/\" target=\"_blank\">IndiaRxiv</a><span> is an initiative of </span><a href=\"http://openaccessindia.org/\" target=\"_blank\">Open Access India</a><span> </span><span>and should not be understood that it is endorsed by  Cornell University or arXiv.</span><span> </span></p>",
+                "email_support": "support+indiarxiv@osf.io",
+                "facebook_app_id": 731016747747490,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_transparent.png"
+                },
+                "share_source": "IndiaRxiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+indiarxiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/indiarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/indiarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/indiarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/indiarxiv/preprints/"
+            }
+        },
+        {
+            "id": "lawarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "LawArXiv",
+                "description": "Legal Scholarship in the Open<br><span>LawArXiv is no longer able to accept new submissions. Thank you to everyone who contributed their work to this repository. Existing content in LawArXiv will remain accessible as part of our ongoing commitment to providing open access to legal scholarship. We appreciate your interest in this project. If you have any questions, please contact us at </span><a href=\"mailto:lawarxiv@cornell.edu\" target=\"_blank\">lawarxiv@cornell.edu</a>",
+                "advisory_board": "",
+                "example": "vk7yp",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>LawArXiv: </span><a href=\"mailto:support+lawarxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+lawarxiv@osf.io\">Contact </a> <span>| </span><a href=\"https://twitter.com/lawarxiv\" target=\"_blank\" title=\"LawArXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license. This license should not be understood to indicate endorsement of content on LawArXiv by Cornell University or arXiv.</span></p>",
+                "email_support": "support+lawarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-11.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": null,
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+lawarxiv@osf.io",
+                "social_twitter": "lawarxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/lawarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lawarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/lawarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/lawarxiv/preprints/"
+            }
+        },
+        {
+            "id": "lissa",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "LIS Scholarship Archive",
+                "description": "A free, open scholarly platform for library and information science<br><span>LISSA is no longer able to accept new submissions. Existing content will remain accessible as part of COS's ongoing commitment to Open Science. </span>",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Advisory Board</h2>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Vicky Steeves</b>, Librarian for Research Data Management and Reproducibility, New York University</li>\n<li><b>April Hathcock</b>, Librarian for Scholarly Communications, New York University</li>\n<li><b>Shanna Hollich</b>, Collection Management Librarian, Wilson College</li>\n<li><b>Chealsye Bowley</b>, Community Manager, Ubiquity Press</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Jim DelRosso</b>, Digital Projects Coordinator, HLM Library, Cornell University</li>\n<li><b>Megan Wacha</b>, Scholarly Communications Librarian, City University of NY</li>\n<li><b>Dina Meky</b></li>\n<li><b>Makoroba Sow</b> </li>\n<li><strong>Syr Reifsteck</strong></li>\n</ul>\n</div>",
+                "example": "tnmra",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>LIS Scholarship Archive: <a href=\"https://lissarchive.org/about/\" target=\"_blank\">About</a>| <a href=\"mailto:support+lissa@osf.io\">Support </a>| <a href=\"mailto:contact+lissa@osf.io\">Contact</a>| <a href=\"https://twitter.com/lissArchive\" target=\"_blank\" title=\"LIS Scholarship Archive on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+lissa@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-12.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "work",
+                "additional_providers": [],
+                "reviews_workflow": "post-moderation",
+                "reviews_comments_private": true,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+lissa@osf.io",
+                "social_twitter": "@lissArchive",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/lissa/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/lissa/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/lissa/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/lissa/preprints/"
+            }
+        },
+        {
+            "id": "marxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "MarXiv",
+                "description": "<span>Submissions for Marxiv are now closed. Existing preprints will be maintained by COS as part of </span><span><span style=\"vertical-align: baseline;\">the long-term data preservation plan.</span></span><span><br></span><span><br></span>",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul class=\"ul1\">\n<li class=\"li1\"><b>Asha de Vos</b>, Oceanswell</li>\n<li class=\"li1\"><b>Dasapta Erwin Irawan</b>, INA-Rxiv &amp; Institut Teknologi Bandung</li>\n<li class=\"li1\"><b>Edd Hind-Ozan</b>, Cardiff University &amp; SCB Marine</li>\n<li class=\"li1\"><b>Jennie Hoffman</b>, Adaptation/Insight</li>\n<li class=\"li1\"><strong>Jon Tennant</strong>, PaleorXiv &amp; ScienceOpen</li>\n<li class=\"li1\"><strong>Wilf Swartz</strong>, Ocean Policy Research Institute, Sasakawa Peace Foundation</li>\n<li class=\"li1\"><strong>Chloë Webster</strong>, Mediterranean Protected Areas Network (MedPAN)</li>\n</ul>\n</div>\n<ul class=\"ul1\">\n<li><strong>Kanae Tokunaga</strong>, Ocean Alliance, The University of Tokyo</li>\n<li><strong>Ling Cao</strong>, Shanghai Jiao Tong University &amp; Stanford University</li>\n<li class=\"li1\"><b></b><b>Michelle LaRue</b>, University of Minnesota</li>\n<li class=\"li1\"><b></b><b>Ting-Chun Kuo</b>, Ocean Says &amp; University of British Columbia</li>\n<li class=\"li1\"><b></b><b>Willow Battista</b>, Consultant, Oceans Program, Environmental Defense Fund</li>\n<li class=\"li1\"><strong>Ashley Farley</strong>, Gates Foundation</li>\n<li class=\"li1\"><strong>Edgar Robles</strong>, Universidad del Mar</li>\n<li class=\"li1\"><strong>Edward Senkondo</strong>, Tanzania Fisheries Research Institute</li>\n</ul>\n<p></p>",
+                "example": "9jk7v",
+                "domain": "https://marxiv.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>MarXiv: <a href=\"https://www.marxivinfo.org/blogs\" target=\"_blank\">Blog</a> | <a href=\"mailto:support+marxiv@osf.io\">Support </a>| <a href=\"mailto:contact+marxiv@osf.io\">Contact </a>|<a href=\"https://twitter.com/MarXivPapers\" target=\"_blank\" title=\"MarXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\"> </span></a></p>",
+                "email_support": "support+marxiv@osf.io",
+                "facebook_app_id": 154234565242083,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-14.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "post-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+marxiv@osf.io",
+                "social_twitter": "@MarXivPreprint",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/marxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/marxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/marxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/marxiv/preprints/",
+                "external_url": "http://marxiv.org"
+            }
+        },
+        {
+            "id": "mediarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "MediArXiv",
+                "description": "<span>Open Archive for Media, Film, and Communication Studies. </span><span>Visit </span><a href=\"https://mediarxiv.com/\" target=\"_blank\"><span class=\"il\">mediarxiv</span>.com</a><span> for more information.</span>",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n<p class=\"m-b-lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong><a href=\"https://laitzefan.com/\" target=\"_blank\">Lai-Tze Fan</a></strong>, Assistant Professor of Rhetoric and Digital Media, University of Waterloo (Canada)</li>\n<li><strong><a href=\"https://jonathangray.org/\" target=\"_blank\">Jonathan Gray</a></strong>, Lecturer in Critical Infrastructure Studies, King’s College London (UK)</li>\n<li><a href=\"http://www.tft.ucla.edu/2011/09/faculty-leah-lievrouw/\" target=\"_blank\"><strong>Leah Lievrouw</strong></a>, Professor of Information Studies, UCLA (USA)</li>\n<li><strong><a href=\"https://www.uj.ac.za/contact/Pages/Nyasha-Mboti.aspx\" target=\"_blank\">Nyasha Mboti</a></strong>, Associate Professor of Communication Studies, University of Johannesburg (South Africa)</li>\n<li><a href=\"https://www.queensu.ca/filmandmedia/faculty-and-staff/faculty-and-staff-bios/gabriel-menotti\"><strong>Gabriel Menotti</strong></a>,  Assistant Professor in Moving Images Curatorial Studies at Queen's University (Canada)</li>\n<li><strong><a href=\"http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001350433\" target=\"_blank\">Ricardo Cedeño Montaña</a></strong>, Associate Professor of Communications, Universidad de Antioquia (Colombia)<strong></strong></li>\n<li><strong><a href=\"https://mobile.twitter.com/dublinbermia?lang=en\" target=\"_blank\">Maria O’Brien</a></strong>, PhD Candidate, School of Communications, Dublin City University (Ireland)<strong></strong></li>\n<li><strong><a href=\"http://www.sussex.ac.uk/profiles/30746\" target=\"_blank\">Kate O’Riordan</a></strong>, Professor of Digital Culture &amp; Head of School of Media, Film and Music, University of Sussex (UK)</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong><a href=\"https://jussiparikka.net/\" target=\"_blank\">Jussi Parikka</a></strong>, Professor of Technological Culture &amp; Aesthetics, University of Southampton (UK)</li>\n<li><strong><a href=\"https://jeffpooley.com/\" target=\"_blank\">Jeff Pooley</a></strong>, MediArXiv Coordinator, Associate Professor of Media &amp; Communication, Muhlenberg College (USA)</li>\n<li><a href=\"https://www.westernsydney.edu.au/ics/people/researchers/xiang_ren\" target=\"_blank\"><strong>Xiang Ren</strong></a>, Academic Fellow in Media and Communications, School of Literature, Arts and Media, University of Syndey (Australia)</li>\n<li><a href=\"https://www.uu.nl/staff/JSondervan\" target=\"_blank\"><strong>Jeroen Sondervan</strong></a>, MediArXiv Coordinator, open access expert &amp; and co-founder of Open Access in Media Studies. Affiliated with Utrecht University (Netherlands)</li>\n<li><a href=\"http://www.cheryllsoriano.com/\" target=\"_blank\"><strong>Cheryll Ruth Soriano</strong></a>, Associate Professor of Communication, De La Salle University (Philippines)</li>\n<li><strong><a href=\"http://cv.gsu.edu.tr/en/CV/ece-vitrinel\" target=\"_blank\">Ece Vitrinel</a></strong>, Assistant Professor of Communication, Galatasaray University (Turkey)</li>\n</ul>\n</div>",
+                "example": null,
+                "domain": "https://mediarxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>MediArXiv: <a href=\"mailto:support+mediarxiv@osf.io\">Support </a>| <a href=\"mailto:contact+mediarxiv@osf.io\">Contact</a> | <a href=\"https://twitter.com/mediarxiv\" style=\"text-align: center;\" target=\"_blank\" title=\"Mediarxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>MediArXiv is a project initiated by Open Access in Media Studies</span></p>",
+                "email_support": "support+mediarxiv@osf.io",
+                "facebook_app_id": 316195746364741,
+                "allow_submissions": true,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-30.png"
+                },
+                "share_source": "MediArXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+mediarxiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/mediarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mediarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/mediarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/mediarxiv/preprints/"
+            }
+        },
+        {
+            "id": "metaarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "MetaArXiv",
+                "description": "An interdisciplinary archive of articles focused on improving research transparency and reproducibility<br> Maintained by <a href=\"http://www.bitss.org\"><span class=\"s2\">The Berkeley Initiative for Transparency in the Social Sciences (BITSS)</span></a><br><span><br>If you are interested in community peer-review, submit your MetaArXiv preprints to </span><a href=\"https://metares.peercommunityin.org/\" target=\"_blank\">PCI Meta-Research</a>",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li>Edward Miguel</li>\n<li>Fernando Hoces de la Guardia</li>\n<li>Katie Hoeberling</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li>Aleksandar Bogdanoski</li>\n<li>Carson Christiano</li>\n</ul>\n</div>",
+                "example": "9a3rw",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>MetaArXiv: </span><a href=\"mailto:support+metaarxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+ metaarxiv@osf.io\">Contact</a> <span>| </span><a href=\"https://twitter.com/UCBITSS\" target=\"_blank\" title=\"MetaArXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+metaarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/metar_square_color_no_transparent.png"
+                },
+                "share_source": "MetaArXiv",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "post-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+metaarxiv@osf.io",
+                "social_twitter": "UCBITSS",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/metaarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/metaarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/metaarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/metaarxiv/preprints/",
+                "external_url": "http://www.bitss.org"
+            }
+        },
+        {
+            "id": "mindrxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "MindRxiv",
+                "description": "Open archive for research on mind and contemplative practices",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Advisory board information</h2>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Susan Bauer-Wu</strong>, Mind &amp; Life Institute</li>\n<li><strong>Sona Dimidjian</strong>, University of Colorado</li>\n<li><strong>John Dunne</strong>, University of Wisconsin–Madison</li>\n<li><strong>Elissa Epel</strong>, University of California–San Francisco</li>\n<li><strong>Wendy Hasenkamp</strong>, Mind &amp; Life Institute</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Rhonda Magee</strong>, University of San Francisco School of Law</li>\n<li><strong>Clifford Saron</strong>, University of California–Davis</li>\n<li><strong>Michael Sheehy</strong>, Mind &amp; Life Institute</li>\n<li><strong>Evan Thompson</strong>, University of British Columbia</li>\n<li><strong>Carol Worthman</strong>, Emory University</li>\n</ul>\n</div>",
+                "example": "f2ept",
+                "domain": "https://mindrxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p><span>MindRxiv: <a href=\"https://www.mindandlife.org/mindrxiv/\" target=\"_blank\">About</a> | <a href=\"mailto:support+mindrxiv@osf.io\">Support</a> | <a href=\"mailto:contact+mindrxiv@osf.io\">Contact</a> | </span><a href=\"https://twitter.com/mindrxiv\" target=\"_blank\" title=\"MindRxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a> <a href=\"https://www.facebook.com/MindRxiv/\" target=\"_blank\" title=\"MindRxiv on Facebook \"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>MindRxiv is a service provided by the Mind &amp; Life Institute, and is not affiliated with other preprint servers.</span></p>",
+                "email_support": "support+mindrxiv@osf.io",
+                "facebook_app_id": 2017300131827056,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-16.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+mindrxiv@osf.io",
+                "social_twitter": "@MindRxiv",
+                "social_facebook": "MindRxiv",
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/mindrxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/mindrxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/mindrxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/mindrxiv/preprints/"
+            }
+        },
+        {
+            "id": "nutrixiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "NutriXiv",
+                "description": "<p><span style=\"vertical-align: baseline;\">NutriXiv is no longer able to accept new submissions. Existing content in this repository will remain accessible as part of COS’s ongoing commitment to Open Science. If it is important to you that free author submissions to this site continue, please consider contacting Kyle Burger (</span><a href=\"http://niblunc.org/\"><span style=\"vertical-align: baseline;\">niblunc.org</span></a><span style=\"vertical-align: baseline;\">) to express your interest in supporting this service</span></p>\n<span style=\"vertical-align: baseline;\"> </span>",
+                "advisory_board": "",
+                "example": "7j4eh",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>NutriXiv: <a href=\"mailto:support+nutrixiv@osf.io\">Support</a> | <a href=\"mailto:contact+nutrixiv@osf.io\">Contact</a> | <a href=\"https://twitter.com/nutrixiv\" target=\"_blank\" title=\"NutriXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+nutrixiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-17.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "post-moderation",
+                "reviews_comments_private": true,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+nutrixiv@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/nutrixiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/nutrixiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/nutrixiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/nutrixiv/preprints/"
+            }
+        },
+        {
+            "id": "osf",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "Open Science Framework",
+                "description": "A scholarly commons to connect the entire research cycle",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Advisory Group</h2>\n<p class=\"m-b-lg\">Our advisory group includes leaders in preprints and scholarly communication</p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Devin Berg</strong> : engrXiv, University of Wisconsin-Stout</li>\n<li><strong>Pete Binfield</strong> : PeerJ PrePrints</li>\n<li><strong>Benjamin Brown</strong> : PsyArXiv, Georgia Gwinnett College</li>\n<li><strong>Philip Cohen</strong> : SocArXiv, University of Maryland</li>\n<li><strong>Kathleen Fitzpatrick</strong> : Modern Language Association</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>John Inglis</strong> : bioRxiv, Cold Spring Harbor Laboratory Press</li>\n<li><strong>Rebecca Kennison</strong> : K | N Consultants</li>\n<li><strong>Kristen Ratan</strong> : CoKo Foundation</li>\n<li><strong>Oya Riege</strong>r : Ithaka S+R</li>\n<li><strong>Judy Ruttenberg</strong> : SHARE, Association of Research Libraries</li>\n</ul>\n</div>",
+                "example": "khbvy",
+                "domain": "https://osf.io/",
+                "domain_redirect_enabled": false,
+                "footer_links": "",
+                "email_support": null,
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-24.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": null,
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": null,
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": [
+                    [
+                        [
+                            "584240d954be81056ceca84d"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240d954be81056ceca9a1"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240d954be81056ceca9e5"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecaaaa"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecaab0"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecaab4"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecaae5"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecac48"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240da54be81056cecaca9"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "584240db54be81056cecacd3"
+                        ],
+                        true
+                    ]
+                ]
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/osf/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/osf/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/osf/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/osf/preprints/",
+                "external_url": "https://osf.io/preprints/"
+            }
+        },
+        {
+            "id": "paleorxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "PaleorXiv",
+                "description": "A preprint archive for Paleontology",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n<p class=\"m--lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"https://twitter.com/josteist\">Jostein Starrfelt</a> University of Oslo, Norway</li>\n<li><a href=\"https://twitter.com/FossilTurtles\">Jérémy Anquetin</a> Jurassica Museum, Porrentruy, Switzerland</li>\n<li><a href=\"https://twitter.com/danpeppe\">Dan Peppe</a> Baylor University, Texas, USA</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"https://twitter.com/taphovenatrix\">Caitlin Syme</a> University of Queensland, Australia</li>\n<li><a href=\"http://www.paleolab.com.br/\">Gabriel Ferreira </a>University of São Paulo, Brazil and University of Tübingen, Germany</li>\n<li><a href=\"https://twitter.com/tharkibo\">Thea Boodhoo</a> Institute for the Study of Mongolian Dinosaurs, USA</li>\n</ul>\n</div>",
+                "example": "3auze",
+                "domain": "https://paleorxiv.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>PaleorXiv: <a href=\"mailto:support+paleorxiv@osf.io\">Support </a>| <a href=\"mailto:contact+paleorxiv@osf.io\">Contact </a>| <a href=\"https://twitter.com/paleorxiv\" target=\"_blank\" title=\"PaleorXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>\n<p> <a href=\"https://paleorxiv.github.io/\" target=\"_blank\">About</a> | <a href=\"https://paleorxiv.github.io/submission_guidelines.html\" target=\"_blank\">Submission Guidelines</a> | <a href=\"https://paleorxiv.github.io/journal_policies.html\" target=\"_blank\">Pre-print policies for relevant journals</a> | <a href=\"https://paleorxiv.github.io/code_of_conduct.html\" target=\"_blank\">Code of Conduct</a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license. This license should not be understood to indicate endorsement of content on PaleorXiv by Cornell University or arXiv.</span></p>",
+                "email_support": "support+paleorxiv@osf.io",
+                "facebook_app_id": 213872049356434,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-18.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+paleorxiv@osf.io",
+                "social_twitter": "paleorxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/paleorxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/paleorxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/paleorxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/paleorxiv/preprints/"
+            }
+        },
+        {
+            "id": "psyarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "PsyArXiv",
+                "description": "A free preprint service for the psychological sciences<br> Maintained by <a href=\"http://improvingpsych.org/\"><span class=\"s2\">The Society for the Improvement of Psychological Science</span></a>",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Scientific Advisory Board</h2>\n<p class=\"m-b-lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>Jack Arnal</b>, McDaniel College, Committee Chair</li>\n<li><b>David Barner</b>, University of California, San Diego</li>\n<li><strong>Grace Binion</strong>, University of Oregon</li>\n<li><b>Benjamin Brown</b>, Georgia Gwinnett College</li>\n<li><b>David Condon</b>, University of Oregon</li>\n<li><b>Will Cross</b>, North Carolina State University Libraries</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Cass Dykeman, </strong>Oregon State University</li>\n<li><strong>Carol Iskiwitch</strong>, University of Southern California</li>\n<li><strong>Melissa Kline</strong>, Center for Open Science</li>\n<li><b>Don Moore</b>, University of California, Berkeley</li>\n<li><strong>Hannah Moshontz</strong>, University of Wisconsin</li>\n<li><b>Sean Rife</b>, Murray State University</li>\n</ul>\n</div>\n<p></p>\n<p></p>\n<div class=\"col-xs-12\">\n<h2><a href=\"http://blog.psyarxiv.com/2020/09/21/pax-member-institutions/\">Member Institutions</a></h2>\n<p class=\"m-b-lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li>Leibniz Institute for Psychology (ZPID)</li>\n<li>Carnegie Mellon University</li>\n<li>Concordia University</li>\n<li>Leiden University</li>\n<li>Max Planck Digital Libraries</li>\n<li>Oregon State University</li>\n<li>Rice University</li>\n<li>Tufts University</li>\n<li>Temple University</li>\n<li>The University of Arizona</li>\n<li>University of California, Berkeley</li>\n<li>University of California, Davis</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li>University of Califonia, Irvine</li>\n<li>University of California, Los Angeles</li>\n<li>University of California, Merced</li>\n<li>University of California, Riverside</li>\n<li>University of California, San Diego</li>\n<li>University of California, San Francisco</li>\n<li>University of California, Santa Barbara</li>\n<li>University of California, Santa Cruz</li>\n<li>University of Manchester</li>\n<li>University of Minnesota</li>\n<li>University of Oregon</li>\n</ul>\n</div>",
+                "example": "k9mn3",
+                "domain": "https://psyarxiv.com/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p><span>For journal preprint policies, see <a href=\"http://www.sherpa.ac.uk/romeo/search.php\">SHeRPa</a></span></p>\n<p><span>PsyArXiv: <a href=\"http://blog.psyarxiv.com/psyarxiv/about-psyarxiv/\" target=\"_blank\">About</a> | </span><a href=\"mailto:support+psyarxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+psyarxiv@osf.io\">Contact</a> <span>| </span><a href=\"https://twitter.com/psyarxiv\" target=\"_blank\" title=\"PsyArXiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><span> </span><a href=\"https://www.facebook.com/PsyArXiv/\" target=\"_blank\" title=\"PsyArXiv on Facebook \"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a><span> </span><a href=\"https://www.instagram.com/psyarxiv/\" target=\"_blank\" title=\"PsyArXiv on Instagram\"><span class=\"fa fa-2x fa-instagram\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license.</span></p>",
+                "email_support": "support+psyarxiv@osf.io",
+                "facebook_app_id": 171222733666315,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-19.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "post-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+psyarxiv@osf.io",
+                "social_twitter": "psyarxiv",
+                "social_facebook": "PsyArXiv",
+                "social_instagram": "psyarxiv",
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": true
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/psyarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/psyarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/psyarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/psyarxiv/preprints/",
+                "external_url": "http://psyarxiv.org"
+            }
+        },
+        {
+            "id": "livedata",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "Research AZ",
+                "description": "Explore the latest research being performed in Arizona's best learning institutions",
+                "advisory_board": "<h2>About</h2>\n<p>Research Arizona is a tri-university collaboration by the three public universities in Arizona: Arizona State University, Northern Arizona University and the University of Arizona. This collaborative effort is funded by the Arizona Board of Regents and is intended to present research data, scholarly output and information about the leading edge research being conducted in our state universities.</p>\n<p>This collaborative effort is funded by the Arizona Board of Regents' Technology and Research Initiative Fund (TRIF).</p>\n<p></p>",
+                "example": null,
+                "domain": "https://researchaz.org/",
+                "domain_redirect_enabled": false,
+                "footer_links": "",
+                "email_support": "support+livedata@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": false,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-13.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "none",
+                "additional_providers": [
+                    "Arizona State University Digital Repository",
+                    "The Digital Archaeological Record",
+                    "SEINet - Arizona Chapter Collections",
+                    "OpenKnowledge@NAU",
+                    "The UA Campus Repository"
+                ],
+                "reviews_workflow": null,
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+livedata@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/livedata/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/livedata/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/livedata/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/livedata/preprints/"
+            }
+        },
+        {
+            "id": "socarxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "SocArXiv",
+                "description": "Open archive of the social sciences<br>SocArXiv papers are moderated before appearing. Visit <a href=\"https://socopen.org/welcome/\">SocOpen.org</a> for more information.",
+                "advisory_board": "<div class=\"col-xs-12\">\n<h2>Steering Committee</h2>\n<p class=\"m-b-lg\"></p>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"https://epberman.com/\" style=\"vertical-align: baseline;\" target=\"_blank\">Elizabeth Po</a><a href=\"https://epberman.com/\" style=\"vertical-align: baseline;\" target=\"_blank\">pp </a><a href=\"https://epberman.com/\" style=\"vertical-align: baseline;\" target=\"_blank\">Berman</a>, Sociologist, University at Albany SUNY</li>\n<li><a href=\"https://chrisbourg.wordpress.com/about/\" style=\"vertical-align: baseline;\" target=\"_blank\">Chris Bourg</a>, Director of Libraries, Massachusetts Institute of Technology</li>\n<li><a href=\"http://philipncohen.com/\" style=\"vertical-align: baseline;\">Philip N. Cohen</a>, Sociologist, University of Maryland, College Park</li>\n<li><a href=\"https://tressiemc.com/\" style=\"vertical-align: baseline;\">Tressie McMillan Cottom</a>, Sociologist, Virginia Commonwealth University</li>\n<li><a href=\"https://socy.umd.edu/gradprofile/dernberger/brittany\" style=\"vertical-align: baseline;\">Brittany Dernberger</a>, Sociologist, University of Maryland, College Park</li>\n<li><a href=\"https://socy.umd.edu/gradprofile/drotning/kelsey\" style=\"vertical-align: baseline;\">Kelsey Drotning</a>, Sociologist, University of Maryland, College Park</li>\n</ul>\n</div>\n<div class=\"col-xs-6\">\n<ul>\n<li><a href=\"http://alex-hanna.com/\" style=\"vertical-align: baseline;\">Alex Hanna</a>, Sociologist, Google</li>\n<li><a href=\"http://knconsultants.org/about/\" style=\"vertical-align: baseline;\" target=\"_blank\">Rebecca Kennison</a>, K|N Consultants</li>\n<li><a href=\"http://olizardo.bol.ucla.edu/\" target=\"_blank\">Omar Lizardo</a>, Sociologist, University of California, Los Angeles</li>\n<li><a href=\"http://www.jeffpooley.com/\" style=\"vertical-align: baseline;\">Jeff Pooley</a>, Media and Communication, Muhlenberg College</li>\n<li><a href=\"http://www.arl.org/about/staff/90-judy-ruttenberg\" style=\"vertical-align: baseline;\">Judy Ruttenberg</a>, Program Officer, Association of Research Libraries</li>\n<li><a href=\"http://sites.psu.edu/alexisrsantos/\" style=\"vertical-align: baseline;\">Alexis Santos</a>, Population Health Scientist, Pennsylvania State University</li>\n</ul>\n</div>",
+                "example": "8374m",
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p><span>SocArXiv: <a href=\"https://socopen.org/welcome/\" target=\"_blank\">About</a> | </span><a href=\"mailto:support+socarxiv@osf.io\">Support</a> <span>| </span><a href=\"mailto:contact+socarxiv@osf.io\">Contact</a> <span>| </span><a href=\"https://twitter.com/socarxiv/\" target=\"_blank\"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a><span> </span><a href=\"https://www.facebook.com/socarxiv/\" target=\"_blank\"><span class=\"fa fa-facebook fa-2x\" style=\"vertical-align: middle;\"> </span></a><span> </span><a href=\"https://www.instagram.com/socarxiv/\" target=\"_blank\"><span class=\"fa fa-2x fa-instagram\" style=\"vertical-align: middle;\"> </span></a></p>\n<p><span>arXiv is a trademark of Cornell University, used under license.</span></p>",
+                "email_support": "support+socarxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-21.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "paper",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": false,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+socarxiv@osf.io",
+                "social_twitter": "socarxiv",
+                "social_facebook": "socarxiv",
+                "social_instagram": "socarxiv",
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/socarxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/socarxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/socarxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/socarxiv/preprints/",
+                "external_url": "http://socarxiv.org"
+            }
+        },
+        {
+            "id": "sportrxiv",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "SportRxiv",
+                "description": "<span>The open access subject repository for Sport, Exercise, </span>Performance, and<span> </span><span>Health</span><span> research.<br><br></span><span class=\"il\">SportRxiv</span><span> is no longer accepting submissions as of 8/27/2021, and all new submissions can be posted to the new platform </span><span><span class=\" ci-gmail-style-container\"><span class=\"il\">SportRxiv</span> OPS (<a href=\"http://sportrxiv.org/\" target=\"_blank\"><span class=\"il\">sportrxiv</span>.org</a>). Existing preprint authors can opt-in to move their preprint to the new platform by emailing <a class=\"ci-email\" href=\"mailto:support@osf.io\" target=\"_blank\">support@osf.io</a> by September 3, 2021. </span></span><span><span class=\" ci-gmail-style-container\">For questions regarding <span class=\"il\">SportRxiv</span> and STORK email <a class=\"ci-email\" href=\"mailto:aaron@storkinesiology.org\" target=\"_blank\">aaron@storkinesiology.org</a>.</span></span><span><br></span>",
+                "advisory_board": "<h2><strong>Steering Committee</strong></h2>\n<p><strong></strong></p>\n<p><strong></strong></p>\n<div class=\"col-xs-6\">\n<ul>\n<li><b>John Mills</b>, University of Essex</li>\n<li><b>Ian Bezodis</b>, Cardiff Metropolitan University</li>\n<li><b>Mark Burnley</b>, University of Kent</li>\n<li><b>Fergus Guppy</b>, University of Brighton</li>\n</ul>\n</div>\n<ul>\n<li><strong>Ian Boardley</strong>, University of Birmingham</li>\n<li><strong>Zachary Zenko</strong>, California State University, Bakersfield</li>\n<li><strong>Matthieu Boisgontier</strong>, KU Leuven</li>\n<li><strong>Aaron Caldwell</strong>, Exercise Science Research Center, University of Arkansas-Fayetteville</li>\n</ul>\n<div class=\"col-xs-6\"></div>",
+                "example": null,
+                "domain": "",
+                "domain_redirect_enabled": false,
+                "footer_links": "<p>SportRxiv: <a href=\"http://sportrxiv.org\" target=\"_blank\">About</a> | <a href=\"mailto:support+sportrxiv@osf.io\">Support </a>| <a href=\"mailto:contact+sportrxiv@osf.io\">Contact </a>| <a href=\"https://twitter.com/SportRxiv/\" target=\"_blank\" title=\"SportRxiv on Twitter \"><span class=\"fa fa-twitter fa-2x\" style=\"vertical-align: middle;\"> </span></a></p>",
+                "email_support": "support+sportrxiv@osf.io",
+                "facebook_app_id": null,
+                "allow_submissions": false,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-22.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "preprint",
+                "additional_providers": [],
+                "reviews_workflow": "pre-moderation",
+                "reviews_comments_private": false,
+                "reviews_comments_anonymous": true,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+sportrxiv@osf.io",
+                "social_twitter": "https://twitter.com/SportRxiv",
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": []
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/sportrxiv/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/sportrxiv/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/sportrxiv/preprints/"
+            }
+        },
+        {
+            "id": "thesiscommons",
+            "type": "preprint_providers",
+            "attributes": {
+                "name": "Thesis Commons",
+                "description": "An open archive of Theses",
+                "advisory_board": "<h2>Steering Committee</h2>\n<div class=\"col-xs-6\">\n<ul>\n<li><strong>Bradly Alicea</strong> : Open Worm</li>\n<li><strong>Gail Clement</strong> :  California Institute of Technology</li>\n<li><strong>John Finnell</strong> : Los Alamos Laboratory</li>\n<li><strong>Amanda French</strong> : Virginia Tech</li>\n<li><strong>Sridhar Gutam</strong> : Indian Council of Agricultural Research</li>\n</ul>\n</div>\n<ul>\n<li><strong>Thea Lindquist</strong> : University of Colorado, Boulder</li>\n<li><strong>Gail McMillan</strong> : Virginia Tech</li>\n<li><strong>Gustav Nilsonne</strong> : Stockholm University and Karolinska Institutet</li>\n<li><strong>Fred Smyth</strong> :  University of Virginia</li>\n<li><strong>John Hagen </strong>: USETDA</li>\n</ul>",
+                "example": "m9kh5",
+                "domain": "https://thesiscommons.org/",
+                "domain_redirect_enabled": true,
+                "footer_links": "<p>Thesis Commons: <a href=\"mailto:support+thesiscommons@osf.io\">Support</a> | <a href=\"mailto:contact+thesiscommons@osf.io\">Contact</a></p>",
+                "email_support": "support+thesiscommons@osf.io",
+                "facebook_app_id": 175477713088250,
+                "allow_submissions": true,
+                "allow_commenting": true,
+                "assets": {
+                    "square_color_no_transparent": "https://storage.googleapis.com/cos-osf-prod-cdn-us/assets/square_color_no_transparent-23.png"
+                },
+                "share_source": "",
+                "share_publish_type": "Preprint",
+                "permissions": [],
+                "preprint_word": "thesis",
+                "additional_providers": [],
+                "reviews_workflow": null,
+                "reviews_comments_private": null,
+                "reviews_comments_anonymous": null,
+                "header_text": "",
+                "banner_path": "",
+                "logo_path": "",
+                "email_contact": "contact+thesiscommons@osf.io",
+                "social_twitter": null,
+                "social_facebook": null,
+                "social_instagram": null,
+                "subjects_acceptable": [
+                    [
+                        [
+                            "59bac90254be8103137da28a"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da28b"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da28c"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da28d"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da28e"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da28f"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da290"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da291"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da292"
+                        ],
+                        true
+                    ],
+                    [
+                        [
+                            "59bac90254be8103137da293"
+                        ],
+                        true
+                    ]
+                ]
+            },
+            "relationships": {
+                "subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/subjects/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_subjects": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/subjects/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/taxonomies/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "highlighted_taxonomies": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/taxonomies/highlighted/",
+                            "meta": {
+                                "has_highlighted_subjects": false
+                            }
+                        }
+                    }
+                },
+                "licenses_acceptable": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/licenses/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "schemas": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/registrations/thesiscommons/schemas/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "preprints": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/preprints/",
+                            "meta": {}
+                        }
+                    }
+                },
+                "moderators": {
+                    "links": {
+                        "related": {
+                            "href": "https://api.osf.io/v2/providers/preprints/thesiscommons/moderators/",
+                            "meta": {}
+                        }
+                    }
+                }
+            },
+            "links": {
+                "self": "https://api.osf.io/v2/providers/preprints/thesiscommons/",
+                "preprints": "https://api.osf.io/v2/providers/preprints/thesiscommons/preprints/"
+            }
+        }
+    ],
+    "links": {
+        "first": null,
+        "last": null,
+        "prev": null,
+        "next": null,
+        "meta": {
+            "total": 28,
+            "per_page": 1000
+        }
+    },
+    "meta": {
+        "warnings": [
+            "This route is deprecated and will be unavailable after version 2.7"
+        ],
+        "whitelisted_providers": [
+            "arXiv",
+            "bioRxiv",
+            "Preprints.org",
+            "PeerJ",
+            "Cogprints",
+            "Research Papers in Economics"
+        ],
+        "version": "2.0"
+    }
+}

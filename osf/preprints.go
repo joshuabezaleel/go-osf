@@ -45,7 +45,7 @@ type Preprint struct {
 	HasCOI                  bool                   `json:"has_coi"`
 	Subjects                [][]*Subject           `json:"subjects"`
 
-	Links *PreprintLinks `json:"-"`
+	Links *PreprintLinks `json:"links"`
 }
 
 /*
@@ -64,6 +64,7 @@ Skipped attrs:
 type PreprintsListOptions struct {
 	ListOptions
 }
+
 func buildPreprint(raw *Data[*Preprint, *PreprintLinks]) (*Preprint, error) {
 	obj := raw.Attributes
 	obj.Links = raw.Links
