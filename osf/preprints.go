@@ -228,27 +228,31 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 	preprint = res.Data
 
 	if isPublished {
-		publishBody := &SinglePayload[*PreprintRequest, interface{}]{
-			RawData: &Data[*PreprintRequest, interface{}]{
-				Type: TypePreprints,
-				ID:   &preprint.ID,
-				Attributes: &PreprintRequest{
-					IsPublished: BoolPointer(true),
-				},
-			},
-		}
-
-		publishReq, err := s.client.NewRequest(http.MethodPatch, fmt.Sprintf("preprints/%s/", preprint.ID), publishBody)
-		if err != nil {
-			return nil, nil, err
-		}
-
-		res, err = doSingle(s.client, ctx, publishReq, buildPreprint)
-		if err != nil {
-			return nil, nil, err
-		}
-		preprint = res.Data
+		return s.UpdatePreprint(ctx, preprint.ID, &PreprintRequest{IsPublished: &isPublished}, nil)
 	}
 
 	return preprint, res, nil
+}
+
+func (s *PreprintsService) UpdatePreprint(ctx context.Context, id string, input *PreprintRequest, relationships Relationships) (*Preprint, *SinglePayload[*Preprint, *PreprintLinks], error) {
+	body := &SinglePayload[*PreprintRequest, interface{}]{
+		RawData: &Data[*PreprintRequest, interface{}]{
+			Type:          TypePreprints,
+			ID:            &id,
+			Attributes:    input,
+			Relationships: relationships,
+		},
+	}
+
+	publishReq, err := s.client.NewRequest(http.MethodPatch, fmt.Sprintf("preprints/%s/", id), body)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	res, err := doSingle(s.client, ctx, publishReq, buildPreprint)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	return res.Data, res, nil
 }
