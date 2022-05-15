@@ -2,6 +2,7 @@ package osf
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -255,4 +256,24 @@ func (s *PreprintsService) UpdatePreprint(ctx context.Context, id string, input 
 	}
 
 	return res.Data, res, nil
+}
+
+func (s *PreprintsService) GetPreprintPrimaryFileByID(ctx context.Context, id string) (*File, *SinglePayload[*File, *FileLinks], error) {
+	_, res, err := s.GetPreprintByID(ctx, id)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	fileID := ""
+	for key, rel := range res.RawData.Relationships {
+		if key == "primary_file" {
+			fileID = *rel.Data.ID
+		}
+	}
+
+	if fileID == "" {
+		return nil, nil, errors.New("This preprint has no primary file")
+	}
+
+	return s.client.Files.GetFileByID(ctx, fileID)
 }
