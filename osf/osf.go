@@ -278,8 +278,9 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 }
 
 type ListOptions struct {
-	Page    int `url:"page[number],omitempty"`
-	PerPage int `url:"page[size],omitempty"`
+	Page    int               `url:"page[number],omitempty"`
+	PerPage int               `url:"page[size],omitempty"`
+	Filter  map[string]string `url:"-"`
 }
 
 // addOptions adds the parameters in opts as URL query parameters to s. opts
@@ -298,6 +299,35 @@ func addOptions(s string, opts interface{}) (string, error) {
 	qs, err := query.Values(opts)
 	if err != nil {
 		return s, err
+	}
+
+	u.RawQuery = qs.Encode()
+	return u.String(), nil
+
+}
+
+// addOptions adds the parameters in opts as URL query parameters to s. opts
+// along with queries for filtering on list endpoint.
+// must be a struct whose fields may contain "url" tags.
+func addOptionsWithFilter(s string, opts interface{}, additionalQueries ...map[string]string) (string, error) {
+	u, err := url.Parse(s)
+	if err != nil {
+		return s, err
+	}
+
+	var qs url.Values
+	v := reflect.ValueOf(opts)
+	if !(v.Kind() == reflect.Ptr && v.IsNil()) {
+		qs, err = query.Values(opts)
+		if err != nil {
+			return s, err
+		}
+	}
+
+	for _, q := range additionalQueries {
+		for k, v := range q {
+			qs.Add("filter["+k+"]", v)
+		}
 	}
 
 	u.RawQuery = qs.Encode()

@@ -72,7 +72,7 @@ func buildPreprint(raw *Data[*Preprint, *PreprintLinks]) (*Preprint, error) {
 }
 
 func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsListOptions) ([]*Preprint, *ManyResponse[*Preprint, *PreprintLinks], error) {
-	u, err := addOptions("preprints", opts)
+	u, err := addOptionsWithFilter("preprints", opts, opts.Filter)
 	if err != nil {
 		return nil, nil, err
 	}
