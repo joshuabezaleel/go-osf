@@ -1,10 +1,10 @@
 # Open Science Framework (OSF) SDK for Golang
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/joshuabezaleel/go-osf)](https://github.com/joshuabezaleel/go-osf)
-[![GoDoc](https://img.shields.io/static/v1?label=godoc&message=reference&color=blue)](https://pkg.go.dev/github.com/joshuabezaleel/go-osf)
+[![GoDoc](https://img.shields.io/static/v1?label=godoc&message=reference&color=blue)](https://pkg.go.dev/github.com/joshuabezaleel/go-osf@v0.0.3/osf)
 [![Go Report Card](https://goreportcard.com/badge/github.com/joshuabezaleel/go-osf)](https://goreportcard.com/report/github.com/joshuabezaleel/go-osf)
 
-go-osf if a Go client library for accessing the [Open Science Framework (OSF) API](https://developer.osf.io/).
+go-osf if a Go client library for accessing the [Open Science Framework (OSF)](https://osf.io) [API](https://developer.osf.io/).
 
 ## Installation
 
