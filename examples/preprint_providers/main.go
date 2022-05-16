@@ -19,13 +19,7 @@ func main() {
 
 	client := osf.NewClient(tc)
 
-	opts := &osf.PreprintProvidersListOptions{
-		ListOptions: osf.ListOptions{
-			// Page:    1000,
-			// PerPage: 2,
-		},
-	}
-	providers, res, err := client.PreprintProviders.ListPreprintProviders(ctx, opts)
+	providers, res, err := client.PreprintProviders.ListPreprintProviders(ctx, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
