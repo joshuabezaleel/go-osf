@@ -175,10 +175,14 @@ func (e Errors) Error() string {
 }
 
 type SinglePayload[T any, U any] struct {
-	RawData *Data[T, U] `json:"data,omitempty"`
-	Errors  Errors      `json:"errors,omitempty"`
+	Data   *Data[T, U] `json:"data,omitempty"`
+	Errors Errors      `json:"errors,omitempty"`
 
-	Data T `json:"-"`
+	transformedData T `json:"-"`
+}
+
+func (s *SinglePayload[T, U]) TransformedData() T {
+	return s.transformedData
 }
 
 type PaginationMeta struct {
@@ -196,12 +200,16 @@ type PaginationLinks struct {
 }
 
 type ManyPayload[T any, U any] struct {
-	RawData         []*Data[T, U]    `json:"data"`
+	Data            []*Data[T, U]    `json:"data"`
 	PaginationLinks *PaginationLinks `json:"links"`
 	Errors          Errors           `json:"errors,omitempty"`
 
-	Data           []T             `json:"-"`
-	PaginationMeta *PaginationMeta `json:"-"`
+	transformedData []T             `json:"-"`
+	PaginationMeta  *PaginationMeta `json:"-"`
+}
+
+func (s *ManyPayload[T, U]) TransformedData() []T {
+	return s.transformedData
 }
 
 // do performs logic for doSingle and doMany via generic a generic method.
@@ -243,11 +251,11 @@ func getIDFieldIndex(obj interface{}) int {
 	return -1
 }
 
-type BuildDataFn[T any, U any] func(obj *Data[T, U]) (T, error)
+type TransformDataFn[T any, U any] func(obj *Data[T, U]) (T, error)
 
 // doSingle performs a request for a single payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*SinglePayload[T, U], error) {
+func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...TransformDataFn[T, U]) (*SinglePayload[T, U], error) {
 	res, err := do[SinglePayload[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
@@ -258,20 +266,20 @@ func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, b
 	}
 
 	// Inject ID into Attributes, if it exists.
-	if res.RawData.ID != nil {
-		idFieldIndex := getIDFieldIndex(res.RawData.Attributes)
+	if res.Data.ID != nil {
+		idFieldIndex := getIDFieldIndex(res.Data.Attributes)
 		if idFieldIndex != -1 {
-			reflect.ValueOf(res.RawData.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.RawData.ID).Elem())
+			reflect.ValueOf(res.Data.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(res.Data.ID).Elem())
 		}
 	}
 
 	if len(build) > 0 {
-		res.Data, err = build[0](res.RawData)
+		res.transformedData, err = build[0](res.Data)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		res.Data = res.RawData.Attributes
+		res.transformedData = res.Data.Attributes
 	}
 
 	return res, err
@@ -279,7 +287,7 @@ func doSingle[T any, U any](c *Client, ctx context.Context, req *http.Request, b
 
 // doMany performs a request for a paginated payload.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
-func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...BuildDataFn[T, U]) (*ManyPayload[T, U], error) {
+func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, build ...TransformDataFn[T, U]) (*ManyPayload[T, U], error) {
 	res, err := do[ManyPayload[T, U]](c, ctx, req)
 	if err != nil {
 		return nil, err
@@ -290,11 +298,11 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 	}
 
 	// Inject ID into T, if it exists.
-	if len(res.Data) > 0 {
-		idFieldIndex := getIDFieldIndex(res.RawData[0].Attributes)
+	if len(res.transformedData) > 0 {
+		idFieldIndex := getIDFieldIndex(res.Data[0].Attributes)
 
 		if idFieldIndex != -1 {
-			for _, obj := range res.RawData {
+			for _, obj := range res.Data {
 				if obj.ID != nil {
 					reflect.ValueOf(obj.Attributes).Elem().Field(idFieldIndex).Set(reflect.ValueOf(obj.ID).Elem())
 				}
@@ -302,18 +310,18 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 		}
 	}
 
-	res.Data = make([]T, 0, len(res.RawData))
+	res.transformedData = make([]T, 0, len(res.Data))
 	if len(build) > 0 {
-		for _, raw := range res.RawData {
+		for _, raw := range res.Data {
 			obj, err := build[0](raw)
 			if err != nil {
 				return nil, err
 			}
-			res.Data = append(res.Data, obj)
+			res.transformedData = append(res.transformedData, obj)
 		}
 	} else {
-		for _, raw := range res.RawData {
-			res.Data = append(res.Data, raw.Attributes)
+		for _, raw := range res.Data {
+			res.transformedData = append(res.transformedData, raw.Attributes)
 		}
 	}
 

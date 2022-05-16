@@ -95,7 +95,7 @@ type PreprintsListOptions struct {
 	ListOptions
 }
 
-func buildPreprint(raw *Data[*Preprint, *PreprintLinks]) (*Preprint, error) {
+func transformPreprint(raw *Data[*Preprint, *PreprintLinks]) (*Preprint, error) {
 	obj := raw.Attributes
 	obj.Links = raw.Links
 	return obj, nil
@@ -112,12 +112,12 @@ func (s *PreprintsService) ListPreprints(ctx context.Context, opts *PreprintsLis
 		return nil, nil, err
 	}
 
-	res, err := doMany(s.client, ctx, req, buildPreprint)
+	res, err := doMany(s.client, ctx, req, transformPreprint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
 
 func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Preprint, *SinglePayload[*Preprint, *PreprintLinks], error) {
@@ -128,12 +128,12 @@ func (s *PreprintsService) GetPreprintByID(ctx context.Context, id string) (*Pre
 		return nil, nil, err
 	}
 
-	res, err := doSingle(s.client, ctx, req, buildPreprint)
+	res, err := doSingle(s.client, ctx, req, transformPreprint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
 
 func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRequest, primaryFile *os.File) (*Preprint, *SinglePayload[*Preprint, *PreprintLinks], error) {
@@ -147,7 +147,7 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 	}
 
 	requestBody := &SinglePayload[*PreprintRequest, interface{}]{
-		RawData: &Data[*PreprintRequest, interface{}]{
+		Data: &Data[*PreprintRequest, interface{}]{
 			Type:       TypePreprints,
 			Attributes: input,
 			Relationships: Relationships{
@@ -166,18 +166,18 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 		return nil, nil, err
 	}
 
-	res, err := doSingle(s.client, ctx, req, buildPreprint)
+	res, err := doSingle(s.client, ctx, req, transformPreprint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	preprint := res.Data
+	preprint := res.TransformedData()
 
 	// Upload primary file.
 	// TODO: Get file upload url from /preprints/:id/files/
-	fileUploadURL, err := url.Parse(fmt.Sprintf("https://files.osf.io/v1/resources/%s/providers/osfstorage/", res.Data.ID))
+	fileUploadURL, err := url.Parse(fmt.Sprintf("https://files.osf.io/v1/resources/%s/providers/osfstorage/", preprint.ID))
 	if err != nil {
-		return res.Data, res, err
+		return nil, nil, err
 	}
 	values := fileUploadURL.Query()
 	values.Add("kind", "file")
@@ -188,18 +188,18 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 	if err != nil {
 		return nil, nil, err
 	}
-	fileRes, err := doSingle(s.client, ctx, fileReq, buildFile)
+	fileRes, err := doSingle(s.client, ctx, fileReq, transformFile)
 	if err != nil {
 		return nil, nil, err
 	}
-	fileID := fileRes.Data.ID
+	fileID := fileRes.TransformedData().ID
 	if strings.HasPrefix(fileID, "osfstorage/") {
 		fileID = strings.TrimPrefix(fileID, "osfstorage/")
 	}
 
 	// Update preprint to change primary files.
 	updatePrimaryFileBody := &SinglePayload[*PreprintRequest, interface{}]{
-		RawData: &Data[*PreprintRequest, interface{}]{
+		Data: &Data[*PreprintRequest, interface{}]{
 			Type: TypePreprints,
 			ID:   &preprint.ID,
 			Relationships: Relationships{
@@ -218,11 +218,11 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 		return nil, nil, err
 	}
 
-	res, err = doSingle(s.client, ctx, updatePrimaryFileReq, buildPreprint)
+	res, err = doSingle(s.client, ctx, updatePrimaryFileReq, transformPreprint)
 	if err != nil {
 		return nil, nil, err
 	}
-	preprint = res.Data
+	preprint = res.TransformedData()
 
 	if isPublished {
 		return s.UpdatePreprint(ctx, preprint.ID, &PreprintRequest{IsPublished: &isPublished}, nil)
@@ -233,7 +233,7 @@ func (s *PreprintsService) CreatePreprint(ctx context.Context, input *PreprintRe
 
 func (s *PreprintsService) UpdatePreprint(ctx context.Context, id string, input *PreprintRequest, relationships Relationships) (*Preprint, *SinglePayload[*Preprint, *PreprintLinks], error) {
 	body := &SinglePayload[*PreprintRequest, interface{}]{
-		RawData: &Data[*PreprintRequest, interface{}]{
+		Data: &Data[*PreprintRequest, interface{}]{
 			Type:          TypePreprints,
 			ID:            &id,
 			Attributes:    input,
@@ -246,12 +246,12 @@ func (s *PreprintsService) UpdatePreprint(ctx context.Context, id string, input 
 		return nil, nil, err
 	}
 
-	res, err := doSingle(s.client, ctx, publishReq, buildPreprint)
+	res, err := doSingle(s.client, ctx, publishReq, transformPreprint)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
 
 func (s *PreprintsService) GetPreprintPrimaryFileByID(ctx context.Context, id string) (*File, *SinglePayload[*File, *FileLinks], error) {
@@ -261,7 +261,7 @@ func (s *PreprintsService) GetPreprintPrimaryFileByID(ctx context.Context, id st
 	}
 
 	fileID := ""
-	for key, rel := range res.RawData.Relationships {
+	for key, rel := range res.Data.Relationships {
 		if key == "primary_file" {
 			fileID = *rel.Data.ID
 		}

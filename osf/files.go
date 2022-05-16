@@ -41,7 +41,7 @@ type FileLinks struct {
 	Delete    *string `json:"delete"`
 }
 
-func buildFile(raw *Data[*File, *FileLinks]) (*File, error) {
+func transformFile(raw *Data[*File, *FileLinks]) (*File, error) {
 	obj := raw.Attributes
 	obj.FileLinks = raw.Links
 	return obj, nil
@@ -55,12 +55,12 @@ func (s *FilesService) GetFileByID(ctx context.Context, id string) (*File, *Sing
 		return nil, nil, err
 	}
 
-	res, err := doSingle(s.client, ctx, req, buildFile)
+	res, err := doSingle(s.client, ctx, req, transformFile)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
 
 func (s *FilesService) DownloadFile(ctx context.Context, dir string, filename string, file *File) error {

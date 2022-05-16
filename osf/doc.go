@@ -1,72 +1,15 @@
 /*
-Package osf provides a client for using the Open Science Framework (OSF) API.
+Package osf provides a client for using the Open Science Framework (OSF, https://osf.io) API.
+Since this client uses generics in its implementation, Go v1.18+ is required.
+
+This project follows the similar structure of github.com/google/go-github.
 
 Usage:
 
-
-
-Authentication:
-
-
-
-JSON API Response Schema:
-
-
-
-Pagination:
-
-
-
-Error Handling:
-
-
-
-Examples:
-
-
-
-Usage:
-
-	import "github.com/google/go-github/v44/github"	// with go modules enabled (GO111MODULE=on or outside GOPATH)
-	import "github.com/google/go-github/github"     // with go modules disabled
-
-Construct a new GitHub client, then use the various services on the client to
-access different parts of the GitHub API. For example:
-
-	client := github.NewClient(nil)
-
-	// list all organizations for user "willnorris"
-	orgs, _, err := client.Organizations.List(ctx, "willnorris", nil)
-
-Some API methods have optional parameters that can be passed. For example:
-
-	client := github.NewClient(nil)
-
-	// list public repositories for org "github"
-	opt := &github.RepositoryListByOrgOptions{Type: "public"}
-	repos, _, err := client.Repositories.ListByOrg(ctx, "github", opt)
-
-The services of a client divide the API into logical chunks and correspond to
-the structure of the GitHub API documentation at
-https://docs.github.com/en/free-pro-team@latest/rest/reference/.
-
-NOTE: Using the https://godoc.org/context package, one can easily
-pass cancelation signals and deadlines to various services of the client for
-handling a request. In case there is no context available, then context.Background()
-can be used as a starting point.
-
-For more sample code snippets, head over to the https://github.com/google/go-github/tree/master/example directory.
-
-Authentication
-
-The go-github library does not directly handle authentication. Instead, when
-creating a new client, pass an http.Client that can handle authentication for
-you. The easiest and recommended way to do this is using the golang.org/x/oauth2
-library, but you can always use any other library that provides an http.Client.
-If you have an OAuth2 access token (for example, a personal API token), you can
-use it with the oauth2 library using:
-
-	import "golang.org/x/oauth2"
+	import (
+		"github.com/joshuabezaleel/go-osf"
+		"golang.org/x/oauth2"
+	)
 
 	func main() {
 		ctx := context.Background()
@@ -75,157 +18,94 @@ use it with the oauth2 library using:
 		)
 		tc := oauth2.NewClient(ctx, ts)
 
-		client := github.NewClient(tc)
+		client := osf.NewClient(tc)
 
-		// list all repositories for the authenticated user
-		repos, _, err := client.Repositories.List(ctx, "", nil)
+		// ...
 	}
 
-Note that when using an authenticated Client, all calls made by the client will
-include the specified OAuth token. Therefore, authenticated clients should
-almost never be shared between different users.
+The OSF API token can be obtained from https://osf.io/settings/tokens.
 
-See the oauth2 docs for complete instructions on using that library.
+Response Schema
 
-For API methods that require HTTP Basic Authentication, use the
-BasicAuthTransport.
+OSF API conforms the JSON API spec v1.0 (https://jsonapi.org/format/1.0/). The
+response payload will be in this generic form:
 
-GitHub Apps authentication can be provided by the
-https://github.com/bradleyfalzon/ghinstallation package.
-It supports both authentication as an installation, using an installation access token,
-and as an app, using a JWT.
+	type Data[T any, U any] struct {
+		Type string  `json:"type"`
+		ID   *string `json:"id,omitempty"`
 
-To authenticate as an installation:
-
-	import "github.com/bradleyfalzon/ghinstallation"
-
-	func main() {
-		// Wrap the shared transport for use with the integration ID 1 authenticating with installation ID 99.
-		itr, err := ghinstallation.NewKeyFromFile(http.DefaultTransport, 1, 99, "2016-10-19.private-key.pem")
-		if err != nil {
-			// Handle error.
-		}
-
-		// Use installation transport with client
-		client := github.NewClient(&http.Client{Transport: itr})
-
-		// Use client...
+		Attributes    T             `json:"attributes,omitempty"`
+		Links         U             `json:"links,omitempty"`
+		Relationships Relationships `json:"relationships,omitempty"`
 	}
 
-To authenticate as an app, using a JWT:
-
-	import "github.com/bradleyfalzon/ghinstallation"
-
-	func main() {
-		// Wrap the shared transport for use with the application ID 1.
-		atr, err := ghinstallation.NewAppsTransportKeyFromFile(http.DefaultTransport, 1, "2016-10-19.private-key.pem")
-		if err != nil {
-			// Handle error.
-		}
-
-		// Use app transport with client
-		client := github.NewClient(&http.Client{Transport: atr})
-
-		// Use client...
+	type SinglePayload[T any, U any] struct {
+		Data   *Data[T, U] `json:"data,omitempty"`
+		Errors Errors      `json:"errors,omitempty"`
 	}
 
-Rate Limiting
+	type ManyPayload[T any, U any] struct {
+		Data            []*Data[T, U]    `json:"data"`
+		PaginationLinks *PaginationLinks `json:"links"`
+		Errors          Errors           `json:"errors,omitempty"`
 
-GitHub imposes a rate limit on all API clients. Unauthenticated clients are
-limited to 60 requests per hour, while authenticated clients can make up to
-5,000 requests per hour. The Search API has a custom rate limit. Unauthenticated
-clients are limited to 10 requests per minute, while authenticated clients
-can make up to 30 requests per minute. To receive the higher rate limit when
-making calls that are not issued on behalf of a user,
-use UnauthenticatedRateLimitedTransport.
-
-The returned Response.Rate value contains the rate limit information
-from the most recent API call. If a recent enough response isn't
-available, you can use RateLimits to fetch the most up-to-date rate
-limit data for the client.
-
-To detect an API rate limit error, you can check if its type is *github.RateLimitError.
-For secondary rate limits, you can check if its type is *github.AbuseRateLimitError:
-
-	repos, _, err := client.Repositories.List(ctx, "", nil)
-	if _, ok := err.(*github.RateLimitError); ok {
-		log.Println("hit rate limit")
-	}
-	if _, ok := err.(*github.AbuseRateLimitError); ok {
-		log.Println("hit secondary rate limit")
+		PaginationMeta  *PaginationMeta `json:"-"`
 	}
 
-Learn more about GitHub rate limiting at
-https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting.
+Nearly all methods will be in this form:
 
-Accepted Status
+	t, res, err := client.Service.Method(ctx, ...)
+	// t is of type T
+	// res if of type SinglePayload[T,U] or ManyPayload[T,U]
 
-Some endpoints may return a 202 Accepted status code, meaning that the
-information required is not yet ready and was scheduled to be gathered on
-the GitHub side. Methods known to behave like this are documented specifying
-this behavior.
-
-To detect this condition of error, you can check if its type is
-*github.AcceptedError:
-
-	stats, _, err := client.Repositories.ListContributorsStats(ctx, org, repo)
-	if _, ok := err.(*github.AcceptedError); ok {
-		log.Println("scheduled on GitHub side")
-	}
-
-Conditional Requests
-
-The GitHub API has good support for conditional requests which will help
-prevent you from burning through your rate limit, as well as help speed up your
-application. go-github does not handle conditional requests directly, but is
-instead designed to work with a caching http.Transport. We recommend using
-https://github.com/gregjones/httpcache for that.
-
-Learn more about GitHub conditional requests at
-https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#conditional-requests.
-
-Creating and Updating Resources
-
-All structs for GitHub resources use pointer values for all non-repeated fields.
-This allows distinguishing between unset fields and those set to a zero-value.
-Helper functions have been provided to easily create these pointers for string,
-bool, and int values. For example:
-
-	// create a new private repository named "foo"
-	repo := &github.Repository{
-		Name:    github.String("foo"),
-		Private: github.Bool(true),
-	}
-	client.Repositories.Create(ctx, "", repo)
-
-Users who have worked with protocol buffers should find this pattern familiar.
+For most of the times, you won't need the res object, as the first returned
+param should already incorporate Attributes, Links, and Relationships. An
+exception would be for pagination, which will be explained below.
 
 Pagination
 
-All requests for resource collections (repos, pull requests, issues, etc.)
-support pagination. Pagination options are described in the
-github.ListOptions struct and passed to the list methods directly or as an
-embedded type of a more specific list options struct (for example
-github.PullRequestListOptions). Pages information is available via the
-github.Response struct.
+For methods returning multiple objects, the `res` will be of type ManyPayload[T,U].
+and PaginationMeta field will contain the pagination info.
 
-	client := github.NewClient(nil)
-
-	opt := &github.RepositoryListByOrgOptions{
-		ListOptions: github.ListOptions{PerPage: 10},
+	total := 0
+	opts := &osf.PreprintsListOptions{
+		ListOptions: osf.ListOptions{
+			Page:    1,
+			PerPage: 10,
+		},
 	}
-	// get all pages of results
-	var allRepos []*github.Repository
-	for {
-		repos, resp, err := client.Repositories.ListByOrg(ctx, "github", opt)
+
+	for total < 100 {
+		preprints, res, err := client.Preprints.ListPreprints(ctx, opts)
 		if err != nil {
-			return err
+			log.Fatal(err)
 		}
-		allRepos = append(allRepos, repos...)
-		if resp.NextPage == 0 {
+
+		for _, preprint := range preprints {
+			// Do something with preprint
+		}
+
+		total += res.PaginationMeta.PerPage
+		if total >= res.PaginationMeta.Total {
 			break
 		}
-		opt.Page = resp.NextPage
+
+		opts.Page = res.PaginationMeta.Page+1
+	}
+
+Error Handling
+
+You may check the error returned for type *Errors, which contains more verbose information
+about the error.
+
+	t, _, err := client.Service.Method(ctx, ...)
+
+	if err != nil {
+		if errs, ok := err.(*osf.Errors); ok {
+			// Handle errs
+		} else {
+			// Handle err as usual
+		}
 	}
 
 */

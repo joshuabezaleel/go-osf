@@ -92,7 +92,7 @@ type PreprintProvidersListOptions struct {
 	ListOptions
 }
 
-func buildPreprintProvider(raw *Data[*PreprintProvider, *PreprintProviderLinks]) (*PreprintProvider, error) {
+func transformPreprintProvider(raw *Data[*PreprintProvider, *PreprintProviderLinks]) (*PreprintProvider, error) {
 	obj := raw.Attributes
 	obj.Links = raw.Links
 	return obj, nil
@@ -109,12 +109,12 @@ func (s *PreprintProvidersService) ListPreprintProviders(ctx context.Context, op
 		return nil, nil, err
 	}
 
-	res, err := doMany(s.client, ctx, req, buildPreprintProvider)
+	res, err := doMany(s.client, ctx, req, transformPreprintProvider)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
 
 func (s *PreprintProvidersService) GetPreprintProviderByID(ctx context.Context, id string) (*PreprintProvider, *SinglePayload[*PreprintProvider, *PreprintProviderLinks], error) {
@@ -125,10 +125,10 @@ func (s *PreprintProvidersService) GetPreprintProviderByID(ctx context.Context, 
 		return nil, nil, err
 	}
 
-	res, err := doSingle(s.client, ctx, req, buildPreprintProvider)
+	res, err := doSingle(s.client, ctx, req, transformPreprintProvider)
 	if err != nil {
 		return nil, nil, err
 	}
 
-	return res.Data, res, nil
+	return res.TransformedData(), res, nil
 }
