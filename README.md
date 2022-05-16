@@ -2,6 +2,7 @@
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/joshuabezaleel/go-osf)](https://github.com/joshuabezaleel/go-osf)
 [![GoDoc](https://img.shields.io/static/v1?label=godoc&message=reference&color=blue)](https://pkg.go.dev/github.com/joshuabezaleel/go-osf@v0.0.3/osf)
+[![tests](https://github.com/joshuabezaleel/go-osf/actions/workflows/tests.yaml/badge.svg)](https://github.com/joshuabezaleel/go-osf/actions/workflows/tests.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/joshuabezaleel/go-osf)](https://goreportcard.com/report/github.com/joshuabezaleel/go-osf)
 
 go-osf if a Go client library for accessing the [Open Science Framework (OSF)](https://osf.io) [API](https://developer.osf.io/).
