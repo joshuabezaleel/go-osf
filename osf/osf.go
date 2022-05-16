@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"reflect"
@@ -14,7 +13,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/google/go-querystring/query"
 	"github.com/pkg/errors"
 )
@@ -209,7 +207,7 @@ type ManyPayload[T any, U any] struct {
 // do performs logic for doSingle and doMany via generic a generic method.
 // HACK: since Go has not supported generics for struct methods (yet), we need to make this standalone.
 func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
-	spew.Dump(req)
+	// spew.Dump(req)
 
 	resp, err := c.client.Do(req)
 	if err != nil {
@@ -221,18 +219,18 @@ func do[T any](c *Client, ctx context.Context, req *http.Request) (*T, error) {
 	data := new(T)
 
 	// TODO: Remove this.
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-	ioutil.WriteFile("dump.json", body, 0644)
-	if err := json.NewDecoder(bytes.NewReader(body)).Decode(data); err != nil {
-		return nil, errors.Wrap(err, "error unmarshaling payload")
-	}
-
-	// if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+	// body, err := ioutil.ReadAll(resp.Body)
+	// if err != nil {
+	// 	return nil, err
+	// }
+	// ioutil.WriteFile("dump.json", body, 0644)
+	// if err := json.NewDecoder(bytes.NewReader(body)).Decode(data); err != nil {
 	// 	return nil, errors.Wrap(err, "error unmarshaling payload")
 	// }
+
+	if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+		return nil, errors.Wrap(err, "error unmarshaling payload")
+	}
 
 	return data, nil
 }
