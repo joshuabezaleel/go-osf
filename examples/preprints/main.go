@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/joshuabezaleel/go-osf/osf"
 	"golang.org/x/oauth2"
 )
@@ -19,28 +18,35 @@ func main() {
 
 	client := osf.NewClient(tc)
 
+	// Fetch 100 first pages, batched 10 per request.
+	total := 0
+
 	opts := &osf.PreprintsListOptions{
 		ListOptions: osf.ListOptions{
-			Page:    1000,
-			PerPage: 2,
-			Filter: map[string]string{
-				"reviews_state": "pending",
-			},
+			Page:    1,
+			PerPage: 10,
 		},
 	}
-	preprints, res, err := client.Preprints.ListPreprints(ctx, opts)
-	if err != nil {
-		log.Fatal(err)
+
+	for total < 100 {
+		preprints, res, err := client.Preprints.ListPreprints(ctx, opts)
+		if err != nil {
+			log.Fatal(err)
+		}
+	
+		for _, preprint := range preprints {
+			log.Printf("URL: %s", *preprint.Links.Html)
+			log.Printf("Title: %s", preprint.Title)
+			log.Printf("Description: %s", preprint.Description)
+		}
+
+		total += res.PaginationMeta.PerPage
+		if total >= res.PaginationMeta.Total {
+			break
+		}
+
+		opts.Page = res.PaginationMeta.Page+1
 	}
 
-	spew.Dump(res)
-	spew.Dump(preprints)
-
-	// // preprint, _, err := client.Preprints.GetPreprintByID(ctx, preprints[0].ID)
-	// preprint, _, err := client.Preprints.GetPreprintByID(ctx, "4rwj5")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// spew.Dump(preprint)
+	log.Printf("Fetched %d preprints", total)
 }

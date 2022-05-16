@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -185,6 +186,7 @@ type SinglePayload[T any, U any] struct {
 type PaginationMeta struct {
 	Total   int `json:"total"`
 	PerPage int `json:"per_page"`
+	Page    int `json:"-"`
 }
 
 type PaginationLinks struct {
@@ -200,8 +202,8 @@ type ManyPayload[T any, U any] struct {
 	PaginationLinks *PaginationLinks `json:"links"`
 	Errors          Errors           `json:"errors,omitempty"`
 
-	Data []T `json:"-"`
-	// TODO: Include more user-friendly attributes regarding paginations.
+	Data           []T             `json:"-"`
+	PaginationMeta *PaginationMeta `json:"-"`
 }
 
 // do performs logic for doSingle and doMany via generic a generic method.
@@ -327,6 +329,32 @@ func doMany[T any, U any](c *Client, ctx context.Context, req *http.Request, bui
 		for _, raw := range res.RawData {
 			res.Data = append(res.Data, raw.Attributes)
 		}
+	}
+
+	// Inject PaginationMeta into payload.
+	if res.PaginationLinks != nil && res.PaginationLinks.Meta != nil {
+		res.PaginationMeta = res.PaginationLinks.Meta
+
+		// Get pagination info from query string, since PaginationLinks are not always reliable.
+
+		page := 1
+		if req.URL.Query().Has("page[number]") {
+			if num, err := strconv.Atoi(req.URL.Query().Get("page[number]")); err == nil {
+				page = num
+			}
+		}
+		res.PaginationMeta.Page = page
+
+		perPage := res.PaginationMeta.PerPage
+		if perPage == 0 {
+			perPage = 10
+			if req.URL.Query().Has("page[size]") {
+				if num, err := strconv.Atoi(req.URL.Query().Get("page[size]")); err == nil {
+					perPage = num
+				}
+			}
+		}
+		res.PaginationMeta.PerPage = perPage
 	}
 
 	return res, err
