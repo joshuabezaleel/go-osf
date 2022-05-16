@@ -12,13 +12,9 @@ import (
 
 var (
 	// For HasDataLinks and HasPreregLinks.
-	available     = "available"
-	no            = "no"
-	notApplicable = "not_applicable"
-
-	Available     = &available
-	No            = &no
-	NotApplicable = &notApplicable
+	Available     = StringPointer("available")
+	No            = StringPointer("no")
+	NotApplicable = StringPointer("not_applicable")
 )
 
 type PreprintsService service

@@ -28,7 +28,6 @@ package main
 import (
 	"context"
 	"log"
-	"os"
 
 	"github.com/joshuabezaleel/go-osf/osf"
 	"golang.org/x/oauth2"
@@ -37,7 +36,7 @@ import (
 func main() {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("OSF_API_TOKEN")},
+		&oauth2.Token{AccessToken: "your token here ..."},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 
@@ -64,3 +63,7 @@ func main() {
 ```
 
 Head over to the [examples folder](examples) or [pkg.go.dev](https://pkg.go.dev/github.com/joshuabezaleel/go-osf) for more usage examples.
+
+## License
+
+This library is distributed under the MIT license found in the [LICENSE.txt](LICENSE.txt) file.
