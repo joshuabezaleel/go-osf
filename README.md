@@ -9,6 +9,8 @@ go-osf if a Go client library for accessing the [Open Science Framework (OSF)](h
 
 ## Installation
 
+test change
+
 go-osf makes use of the [generics](https://go.dev/doc/tutorial/generics), so it requires Go v1.18.
 
 To use this library within a Go module project:
